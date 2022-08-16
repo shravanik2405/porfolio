@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Megrim:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Megrim', sans-serif;
+  color: #353531;
+  /* @apply font-megrim; */
+}
+
+html {
+  cursor: none;
+}
+
+.cursor {
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  background-color: #fcf6b1;
+  opacity: 30%;
+  position: absolute;
+  border-radius: 15px;
+  z-index: 9999;
+}
+
+.cursor__follower {
+  transition: transform 0.4s;
+  width: 12.5px;
+  height: 12.5px;
+  background-color: #fcf6b1;
+  z-index: 9999;
+  opacity: 100%;
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 400vw;
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
+}
+
+.one {
+  background-color: #ec4e20;
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  width: 400vw;
+  position: relative;
+}
+.two {
+  background-color: green;
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  width: 400vw;
+}
+.outer-wrapper {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.blackDiv {
+  position: absolute;
+  height: 50vh;
+  width: 400vw;
+  background-color: #353531;
+  bottom: 0;
+}
+
+.greenDiv {
+  position: relative;
+  width: 400vw;
+
+  /* bottom: 43.3%; */
+}
+
+.blueDiv {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  width: 400vw;
+}
+
+.cssanimation {
+  animation-duration: 1s;
+}
+
+.fadeInBottom {
+  animation-name: fadeInBottom;
+}
+@keyframes fadeInBottom {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+.nameDiv {
+  margin-top: 100px;
+}
+.name {
+  font-weight: 700;
+  font-size: 200px;
+}
+.whiteName {
+  font-weight: 700;
+  font-size: 200px;
+}
+color: #ec4e20;

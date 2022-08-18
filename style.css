@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Megrim:wght@300;400;500;600;700&display=swap');
 
-body {
-  margin: 0px;
-  padding: 0px;
-  font-family: 'Megrim', sans-serif;
-  color: #353531;
-  /* @apply font-megrim; */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   cursor: none;
+}
+
+body {
+  color: #353531;
+  font-family: 'Megrim', sans-serif;
 }
 
 .cursor {
@@ -37,6 +42,7 @@ html {
   width: 100vw;
   height: 100vh;
 }
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -52,12 +58,14 @@ html {
   width: 400vw;
   position: relative;
 }
+
 .two {
   background-color: green;
   background-size: auto 100%;
   background-repeat: repeat-x;
   width: 400vw;
 }
+
 .outer-wrapper {
   width: 100vh;
   height: 100vw;
@@ -69,6 +77,7 @@ html {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -84,8 +93,9 @@ html {
 .greenDiv {
   position: relative;
   width: 400vw;
-
-  /* bottom: 43.3%; */
+  height: 50vh;
+  display: flex;
+  align-items: flex-end;
 }
 
 .blueDiv {
@@ -102,6 +112,7 @@ html {
 .fadeInBottom {
   animation-name: fadeInBottom;
 }
+
 @keyframes fadeInBottom {
   from {
     transform: translateY(100%);
@@ -111,12 +122,22 @@ html {
 .nameDiv {
   margin-top: 100px;
 }
+
 .name {
   font-weight: 700;
   font-size: 200px;
 }
+
 .whiteName {
   font-weight: 700;
   font-size: 200px;
+  color: #ec4e20;
 }
-color: #ec4e20;
+
+.nameSection {
+  display: flex;
+  flex-direction: col;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0;
+}

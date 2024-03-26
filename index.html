@@ -5,22 +5,33 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Shravani Khatri</title>
     <script src="index.js"></script>
+    <style>
+      .cloudOne.paused,
+      .cloudTwo.paused {
+        animation-play-state: paused !important;
+      }
+    </style>
   </head>
   <body>
-    <div class="outer-wrapper">
-      <div class="wrapper">
-        <div class="slide one">
-          <section class="nameSection">
-            <div class="greenDiv cssanimation sequence fadeInBottom">
-              <span class="name">SHRAVANI</span>
-              <div class="image">IMages</div>
+    <main>
+      <article>
+        <section>
+          <div class="topSection">
+            <div class="firstName bounce">
+              <span>SHRAVANI</span>
             </div>
-            <div class="blackDiv cssanimation sequence fadeInBottom">
-              <span class="whiteName">KHATRI</span>
+            <div class="woman"></div>
+            <img src="./books.svg" class="books" />
+
+            <div class="lamp swing"></div>
+          </div>
+          <div class="bottomSection">
+            <div class="lastName bounce">
+              <span class="">KHATRI</span>
             </div>
-          </section>
-        </div>
-      </div>
-    </div>
+          </div>
+        </section>
+      </article>
+    </main>
   </body>
 </html>

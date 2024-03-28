@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Megrim:wght@300;400;500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Indie+Flower&display=swap");
 /* *,
 *:before,
 *:after {
@@ -14,7 +13,7 @@ html {
 
 body {
   color: #353531;
-  font-family: "Megrim", sans-serif;
+  font-family: "Indie Flower", sans-serif;
 }
 
 .cursor {
@@ -282,6 +281,18 @@ section {
   z-index: 2;
 }
 
+.woman2 {
+  background-position: center;
+  background-size: cover;
+  animation: womanEyes 2s infinite alternate;
+  height: 306px;
+  width: 204px;
+  align-self: flex-end;
+  margin-bottom: -3rem;
+  z-index: 2;
+  margin-left: 500px;
+}
+
 @keyframes womanEyes {
   0% {
     background-image: url("./woman-eyes-closed.svg");
@@ -326,10 +337,10 @@ section {
   content: "";
   display: block;
   position: absolute;
-  width: 100px;
+  width: 75px;
   height: 20px;
   top: -270px;
-  left: -160px;
+  left: -150px;
   border-top: 250px solid transparent;
   border-bottom: 500px solid rgba(255, 255, 255, 0.4);
   border-left: 160px solid transparent;
@@ -395,4 +406,171 @@ section {
   100% {
     opacity: 1;
   }
+}
+
+.float {
+  -webkit-transform: translatey(0px);
+  transform: translatey(0px);
+  -webkit-animation: float 2s ease-in-out alternate infinite;
+  animation: float 2s ease-in-out alternate;
+}
+
+.frida {
+  align-self: flex-end;
+  background-size: cover;
+  height: 333px;
+  width: 391px;
+  z-index: 2;
+  margin-left: 500px;
+  background-image: url("./Frida_Khalo_orange\ flowers_HUG.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-bottom: -0.25rem;
+}
+
+.circleOne {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  top: 55%;
+  left: 90%;
+  animation: one 3s infinite alternate;
+}
+
+.circleTwo {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  top: 12%;
+  left: -125%;
+  animation: two 3s infinite alternate;
+}
+
+.circleThree {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  top: 20%;
+  left: 45%;
+  animation: three 3s infinite alternate;
+}
+
+.circleFour {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  top: -37%;
+  left: 32%;
+  animation: four 3s infinite alternate;
+}
+
+.circleFive {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  top: -75%;
+  left: 37%;
+  animation: five 3s infinite alternate;
+}
+
+.circleSix {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  top: -75%;
+  left: 37%;
+  animation: six 3s infinite alternate;
+}
+
+@keyframes one {
+  0% {
+    transform: rotate(180deg) translate(0, 0) translate(400px);
+  }
+  50% {
+    transform: rotate(180deg) translate(20px, -20px) translate(400px);
+  }
+  100% {
+    transform: rotate(180deg) translate(0, 0) translate(400px);
+  }
+}
+
+@keyframes two {
+  0% {
+    transform: rotate(360deg) translate(0, 0) translate(400px);
+  }
+  50% {
+    transform: rotate(360deg) translate(-20px, 10px) translate(400px);
+  }
+  100% {
+    transform: rotate(360deg) translate(0, 0) translate(400px);
+  }
+}
+
+@keyframes three {
+  0% {
+    transform: rotate(360deg) translate(0, 0) translate(200px);
+  }
+  50% {
+    transform: rotate(360deg) translate(-20px, 10px) translate(200px);
+  }
+  100% {
+    transform: rotate(360deg) translate(0, 0) translate(200px);
+  }
+}
+
+@keyframes four {
+  0% {
+    transform: rotate(360deg) translate(45px, 45px) translate(250px);
+  }
+  50% {
+    transform: rotate(360deg) translate(55px, 55px) translate(250px);
+  }
+  100% {
+    transform: rotate(360deg) translate(45px, 45px) translate(250px);
+  }
+}
+
+@keyframes five {
+  0% {
+    transform: rotate(360deg) translate(45px, 45px) translate(250px);
+  }
+  50% {
+    transform: rotate(360deg) translate(30px, 30px) translate(250px);
+  }
+  100% {
+    transform: rotate(360deg) translate(45px, 45px) translate(250px);
+  }
+}
+
+@keyframes six {
+  0% {
+    transform: rotate(360deg) translate(45px, 45px) translate(250px);
+  }
+  50% {
+    transform: rotate(360deg) translate(30px, 30px) translate(250px);
+  }
+  100% {
+    transform: rotate(360deg) translate(45px, 45px) translate(250px);
+  }
+}
+
+.six {
+  transform: rotate(-130deg) translate(130px);
+}
+.seven {
+  transform: rotate(-150deg) translate(130px);
 }

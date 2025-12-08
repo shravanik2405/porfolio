@@ -1,9 +1,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Section1 } from "./Section1"; // Updated import path auto-resolved to index
-import { Section2 } from "./Section2"; // Updated import path auto-resolved to index
-import { Section } from "./Section"; // Updated import path auto-resolved to index
+import { Section1 } from "./Section1";
+import { Section2 } from "./Section2";
+import { Section } from "./Section";
 import { Cloud } from "./Cloud";
+import { theme } from "../theme";
 
 export const HorizontalScroll = () => {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -48,7 +49,17 @@ export const HorizontalScroll = () => {
           height: "100vh",
           overflow: "hidden",
         }}>
-        <motion.div style={{ x, display: "flex", position: "relative" }}>
+        <motion.div
+          style={{
+            x,
+            display: "flex",
+            position: "relative",
+            // Apply the same gradient background to the container to mask any sub-pixel gaps between sections
+            background: theme.gradients.splitBackground(
+              theme.colors.primary,
+              theme.colors.secondary
+            ),
+          }}>
           <Cloud isPaused={isScrolling} />
           <Section1 />
           <Section2 />

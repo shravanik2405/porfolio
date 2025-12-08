@@ -61,9 +61,21 @@
 }
 
 .girlImage {
-  width: 100%;
+  width: 70%;
   height: auto;
   object-fit: contain;
+}
+
+/* Updated styling for the birds image from assets */
+.birdsImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 50vh; /* Don't take up too much vertical space */
+  object-fit: cover; /* or contain, depending on if you want it to stretch fully */
+  z-index: 15;
+  pointer-events: none; /* Let clicks pass through */
 }
 
 @media (max-width: 768px) {

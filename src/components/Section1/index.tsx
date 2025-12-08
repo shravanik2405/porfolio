@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import frame1 from "../../assets/frame1.png";
 import frame2 from "../../assets/frame2.png";
+import birds from "../../assets/birds.png";
 import { theme } from "../../theme";
 
 const images = [frame1, frame2];
@@ -26,6 +27,9 @@ export const Section1 = () => {
           theme.colors.secondary
         ),
       }}>
+      {/* Replaced Birds component with the birds image requested */}
+      <img src={birds} alt='Birds' className={styles.birdsImage} />
+
       <div className={styles.container}>
         <div className={styles.textContainer}>
           <h1

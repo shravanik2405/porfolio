@@ -1,6 +1,6 @@
 export const theme = {
   colors: {
-    primary: "#EB5937", // Orange
+    primary: "#ffc785", // Light Orange
     secondary: "#353531", // Dark Grey / Black (Now using secondaryDark everywhere)
     secondaryDark: "#353531", // Slightly different dark grey (used in Section 2 currently)
     textLight: "#ffffff",

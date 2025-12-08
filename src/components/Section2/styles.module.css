@@ -1,0 +1,29 @@
+.section {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageContainer {
+  position: absolute;
+  bottom: 50%;
+  left: 10%;
+  width: 40%;
+  max-width: 400px;
+  z-index: 20;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bookImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-bottom: -5px;
+}

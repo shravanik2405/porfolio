@@ -27,7 +27,6 @@ export const Section1 = () => {
           theme.colors.secondary
         ),
       }}>
-      {/* Replaced Birds component with the birds image requested */}
       <img src={birds} alt='Birds' className={styles.birdsImage} />
 
       <div className={styles.container}>

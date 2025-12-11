@@ -78,7 +78,8 @@
   pointer-events: none; /* Let clicks pass through */
 }
 
-@media (max-width: 1023px) {
+/* Treat tablets like desktop; tighten layout only on phones */
+@media (max-width: 767px) {
   /* Adjust for vertical layout on mobile/tablet */
   .section {
     width: 100%;

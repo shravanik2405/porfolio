@@ -27,3 +27,25 @@
   display: block;
   margin-bottom: -5px;
 }
+
+.vaseImageContainer {
+  position: absolute;
+  bottom: 50%;
+  left: calc(10% + 40% + 8%);
+  transform: translateX(-50%);
+  width: 20%;
+  max-width: 500px;
+  min-width: 150px;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: -20px;
+}
+
+.frameImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}

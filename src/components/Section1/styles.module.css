@@ -4,7 +4,6 @@
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
-  font-family: "Arial", sans-serif;
 }
 
 .container {
@@ -30,6 +29,7 @@
 .firstName {
   font-size: 10vw;
   margin: 0;
+  margin-bottom: 4vw;
   font-weight: 900;
   letter-spacing: -5px;
   text-transform: uppercase;
@@ -39,7 +39,7 @@
 .lastName {
   font-size: 10vw;
   margin: 0;
-  font-family: "Times New Roman", serif;
+  margin-top: 4vw;
   font-weight: normal;
   letter-spacing: 5px;
   text-transform: uppercase;
@@ -103,6 +103,14 @@
     letter-spacing: -2px;
   }
 
+  .firstName {
+    margin-bottom: 3vw;
+  }
+
+  .lastName {
+    margin-top: 3vw;
+  }
+
   .imageWrapper {
     width: 50vw;
     min-width: 0;
@@ -116,6 +124,14 @@
   .firstName,
   .lastName {
     font-size: 13vw;
+  }
+
+  .firstName {
+    margin-bottom: 2vw;
+  }
+
+  .lastName {
+    margin-top: 2vw;
   }
 
   .imageWrapper {

@@ -5,6 +5,9 @@ export const theme = {
     textLight: "#ffffff",
     textDark: "#2D2D2D",
   },
+  fonts: {
+    primary: '"Mochiy Pop P One", sans-serif',
+  },
   gradients: {
     splitBackground: (topColor: string, bottomColor: string) =>
       `linear-gradient(to bottom, ${topColor} 50%, ${bottomColor} 50%)`,

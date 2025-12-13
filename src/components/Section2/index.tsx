@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from "react";
-import books1 from "../../assets/books1.png";
-import books2 from "../../assets/books3.png";
 import { theme } from "../../theme";
 import styles from "./styles.module.css";
 
-const images = [books1, books2];
+import vase3 from "../../assets/vase3.svg";
+import vase4 from "../../assets/vase4.svg";
+import vase5 from "../../assets/vase5.svg";
+import vase1 from "../../assets/vase1.svg";
+import vase2 from "../../assets/vase2.svg";
+
+import booksAndCat from "../../assets/books-and-cat.svg";
+import { useEffect, useState } from "react";
 
 export const Section2 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const vaseImages = [vase1, vase2, vase3, vase4, vase5];
+  const images = [booksAndCat];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 500); // Toggle every 500ms
+      setCurrentImageIndex((prev) => (prev + 1) % vaseImages.length);
+    }, 500); // Change frame every 500ms
 
     return () => clearInterval(interval);
   }, []);
@@ -28,9 +34,17 @@ export const Section2 = () => {
       }}>
       <div className={styles.imageContainer}>
         <img
-          src={images[currentImageIndex]}
+          src={images[0]}
           alt='Books with Cat'
           className={styles.bookImage}
+        />
+      </div>
+
+      <div className={styles.vaseImageContainer}>
+        <img
+          src={vaseImages[currentImageIndex]}
+          alt='Frame Animation'
+          className={styles.frameImage}
         />
       </div>
     </section>

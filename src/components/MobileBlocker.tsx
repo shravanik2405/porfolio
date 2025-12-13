@@ -11,12 +11,21 @@ export const MobileBlocker = () => {
           height: 100vh;
           background-color: #000000;
           z-index: 9999;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .mobile-blocker-text {
+          color: #ffffff;
+          font-size: 24px;
+          font-weight: 500;
+          text-align: center;
         }
 
         /* Show only on mobile-sized screens; keep tablets & larger unchanged */
         @media (max-width: 767px) {
           .mobile-blocker {
-            display: block;
+            display: flex;
           }
           /* Hide the main app content when blocker is visible to prevent scrolling */
           body {
@@ -24,6 +33,7 @@ export const MobileBlocker = () => {
           }
         }
       `}</style>
+      <div className='mobile-blocker-text'>Coming Soon</div>
     </div>
   );
 };

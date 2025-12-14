@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Section1 } from "./Section1";
 import { Section2 } from "./Section2";
+import { Section4 } from "./Section4";
 import { Section } from "./Section";
 import { Cloud } from "./Cloud";
 import { theme } from "../theme";
@@ -64,7 +65,7 @@ export const HorizontalScroll = () => {
           <Section1 />
           <Section2 />
           <Section index={3} />
-          <Section index={4} />
+          <Section4 />
         </motion.div>
       </div>
     </div>

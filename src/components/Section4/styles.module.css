@@ -1,0 +1,23 @@
+.section {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.treeContainer {
+  position: absolute;
+  bottom: 50%;
+  right: 10%;
+  width: 50%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 20;
+  margin-bottom: -10px; /* Slight adjustment to match other elements' grounding */
+}

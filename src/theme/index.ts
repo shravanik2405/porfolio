@@ -10,6 +10,6 @@ export const theme = {
   },
   gradients: {
     splitBackground: (topColor: string, bottomColor: string) =>
-      `linear-gradient(to bottom, ${topColor} 50%, ${bottomColor} 50%)`,
+      `linear-gradient(to bottom, ${topColor} 60%, ${bottomColor} 60%)`,
   },
 };

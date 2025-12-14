@@ -11,7 +11,7 @@
 
 .treeContainer {
   position: absolute;
-  bottom: 50%;
+  bottom: 40%;
   right: 10%;
   width: 50%;
   max-width: 600px;
@@ -20,4 +20,18 @@
   align-items: flex-end;
   z-index: 20;
   margin-bottom: -10px; /* Slight adjustment to match other elements' grounding */
+}
+
+.grassContainer {
+  position: absolute;
+  bottom: 40%;
+  right: 10%;
+  width: 50%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 21; /* Grass in front of tree */
+  margin-bottom: -10px; /* Align with tree base */
+  pointer-events: none; /* Let clicks pass through if needed */
 }

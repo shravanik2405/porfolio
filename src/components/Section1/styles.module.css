@@ -49,7 +49,7 @@
 .imageWrapper {
   position: absolute;
   right: 5%;
-  bottom: 50%;
+  bottom: 40%;
   transform: translateY(18%);
   z-index: 20;
   width: 30vw;
@@ -115,7 +115,7 @@
     width: 50vw;
     min-width: 0;
     right: -5%;
-    bottom: 45%;
+    bottom: 35%;
     transform: translateY(20%);
   }
 }

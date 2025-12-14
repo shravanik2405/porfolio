@@ -11,7 +11,7 @@
 
 .imageContainer {
   position: absolute;
-  bottom: 50%;
+  bottom: 40%;
   left: 10%;
   width: 40%;
   max-width: 400px;
@@ -30,7 +30,7 @@
 
 .vaseImageContainer {
   position: absolute;
-  bottom: 50%;
+  bottom: 40%;
   left: calc(10% + 40% + 8%);
   transform: translateX(-50%);
   width: 20%;

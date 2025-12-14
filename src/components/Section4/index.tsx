@@ -2,6 +2,7 @@ import React from "react";
 import { theme } from "../../theme";
 import styles from "./styles.module.css";
 import AvocadoTree from "./AvocadoTree";
+import { GrassStrip } from "./GrassStrip";
 
 export const Section4 = () => {
   return (
@@ -15,6 +16,18 @@ export const Section4 = () => {
       }}>
       <div className={styles.treeContainer}>
         <AvocadoTree />
+      </div>
+      <div className={styles.grassContainer}>
+        <GrassStrip
+          color='#292926'
+          width={600}
+          bladeCount={240}
+          height={80}
+          variability={0.8}
+          wind={0.05}
+          flowerDensity={0.15}
+          beeCount={3}
+        />
       </div>
     </section>
   );

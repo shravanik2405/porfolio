@@ -1,4 +1,3 @@
-import React from "react";
 import { theme } from "../../theme";
 import styles from "./styles.module.css";
 import AvocadoTree from "./AvocadoTree";
@@ -20,8 +19,8 @@ export const Section4 = () => {
       <div className={styles.grassContainer}>
         <GrassStrip
           color='#292926'
-          width={600}
-          bladeCount={240}
+          width={800}
+          bladeCount={320}
           height={80}
           variability={0.8}
           wind={0.05}

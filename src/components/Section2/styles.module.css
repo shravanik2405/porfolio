@@ -11,10 +11,10 @@
 
 .imageContainer {
   position: absolute;
-  bottom: 40%;
+  bottom: 39%;
   left: 10%;
-  width: 40%;
-  max-width: 400px;
+  width: 50%;
+  max-width: 600px;
   z-index: 20;
   display: flex;
   align-items: flex-end;
@@ -31,7 +31,7 @@
 .vaseImageContainer {
   position: absolute;
   bottom: 40%;
-  left: calc(10% + 40% + 8%);
+  left: calc(10% + 50% + 8%);
   transform: translateX(-50%);
   width: 20%;
   max-width: 500px;

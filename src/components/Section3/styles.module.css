@@ -9,29 +9,24 @@
   overflow: hidden;
 }
 
-.meditatingContainer {
+.vaseImageContainer {
   position: absolute;
-  bottom: 33%;
-  left: 60%;
-  width: 40%;
-  z-index: 25;
-}
-
-.imageContainer {
-  position: absolute;
-  bottom: 39%;
-  left: 10%;
-  width: 50%;
-  max-width: 600px;
+  bottom: 40%;
+  left: 80%;
+  transform: translateX(-50%);
+  width: 20%;
+  max-width: 500px;
+  min-width: 150px;
   z-index: 20;
   display: flex;
+  justify-content: center;
   align-items: flex-end;
+  margin-bottom: -20px;
 }
 
-.bookImage {
+.frameImage {
   width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
-  margin-bottom: -5px;
 }

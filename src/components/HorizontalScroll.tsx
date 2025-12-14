@@ -2,8 +2,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Section1 } from "./Section1";
 import { Section2 } from "./Section2";
+import { Section3 } from "./Section3";
 import { Section4 } from "./Section4";
-import { Section } from "./Section";
 import { Cloud } from "./Cloud";
 import { theme } from "../theme";
 
@@ -64,7 +64,7 @@ export const HorizontalScroll = () => {
           <Cloud isPaused={isScrolling} />
           <Section1 />
           <Section2 />
-          <Section index={3} />
+          <Section3 />
           <Section4 />
         </motion.div>
       </div>

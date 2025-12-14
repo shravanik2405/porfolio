@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 1rem; Removed to align bottom with container bottom */
+  /* overflow: hidden; Removed to allow shadow */
+}
+
+.wrapper {
+  position: relative;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  max-width: 42rem; /* max-w-2xl */
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float-planet {
+  0% {
+    offset-distance: 0%;
+  }
+  50% {
+    offset-distance: 5%;
+  }
+  100% {
+    offset-distance: 0%;
+  }
+}
+
+.orbitGroup {
+  transform-origin: 268px 250px;
+}
+
+.planetMotion {
+  offset-path: path("M 508 250 A 240 90 0 1 1 28 250 A 240 90 0 1 1 508 250");
+  offset-rotate: 0deg;
+  animation: float-planet 6s ease-in-out infinite;
+}
+
+.orbitSystem circle[fill="url(#auraGradient)"] {
+  animation: pulse-glow 4s ease-in-out infinite;
+  transform-origin: 268px 250px;
+}

@@ -2,8 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 1rem; Removed to align bottom with container bottom */
-  /* overflow: hidden; Removed to allow shadow */
 }
 
 .wrapper {
@@ -28,44 +26,67 @@
   }
 }
 
-@keyframes float-planet {
+@keyframes arc-slide {
   0% {
     offset-distance: 0%;
+    opacity: 0;
+    transform: scale(0.5);
   }
-  50% {
-    offset-distance: 5%;
+  10% {
+    opacity: 1;
+    transform: scale(1);
   }
-  100% {
-    offset-distance: 0%;
-  }
-}
-
-@keyframes orbit-infinite {
-  0% {
-    offset-distance: 0%;
+  90% {
+    opacity: 1;
+    transform: scale(1);
   }
   100% {
     offset-distance: 100%;
+    opacity: 0;
+    transform: scale(0.5);
   }
-}
-
-.orbitGroup {
-  transform-origin: 268px 250px;
-}
-
-.planetMotion {
-  offset-path: path("M 508 250 A 240 90 0 1 1 28 250 A 240 90 0 1 1 508 250");
-  offset-rotate: 0deg;
-  animation: float-planet 6s ease-in-out infinite;
-}
-
-.cssPlanetMotion {
-  offset-path: path("M 488 250 A 220 60 0 1 1 48 250 A 220 60 0 1 1 488 250");
-  offset-rotate: 0deg;
-  animation: orbit-infinite 20s linear infinite;
 }
 
 .orbitSystem circle[fill="url(#auraGradient)"] {
   animation: pulse-glow 4s ease-in-out infinite;
   transform-origin: 268px 250px;
+}
+
+.arcGroup {
+  /* Container for the arc system, no specific styling needed unless for positioning */
+}
+
+.planet {
+  /* Define the path for all planets */
+  offset-path: path("M 20 280 Q 268 -80 516 280");
+  offset-rotate: 0deg; /* Keep planets upright or auto to follow path tangent */
+  /* transform-box: fill-box; */
+  /* transform-origin: center; */
+
+  /* Initial state off-screen/invisible if waiting for delay */
+  opacity: 0;
+
+  animation: arc-slide 10s linear infinite;
+}
+
+/* Cascading Delays */
+.planet1 {
+  animation-delay: 0s;
+  /* Complex SVG needs to be visible */
+}
+
+.planet2 {
+  animation-delay: 2s;
+}
+
+.planet3 {
+  animation-delay: 4s;
+}
+
+.planet4 {
+  animation-delay: 6s;
+}
+
+.planet5 {
+  animation-delay: 8s;
 }

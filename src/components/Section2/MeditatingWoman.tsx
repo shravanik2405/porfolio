@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./MeditatingWoman.module.css";
 
 const MeditatingWoman = () => {
@@ -17,18 +16,10 @@ const MeditatingWoman = () => {
             {/* Central Glow/Aura */}
             <circle cx='268' cy='250' r='140' fill='url(#auraGradient)' />
 
-            {/* Orbit Ring 1 (Large Horizontal) */}
-            <g className={styles.orbitGroup}>
-              <ellipse
-                cx='268'
-                cy='250'
-                rx='220'
-                ry='60'
-                stroke='#292926'
-                strokeWidth='1.5'
-                strokeOpacity='0.2'
-              />
-              <g className={styles.cssPlanetMotion}>
+            {/* Arc Planets */}
+            <g className={styles.arcGroup}>
+              {/* Planet 1: Complex SVG */}
+              <g className={`${styles.planet} ${styles.planet1}`}>
                 <svg
                   x='-32'
                   y='-31'
@@ -72,57 +63,23 @@ const MeditatingWoman = () => {
                   />
                 </svg>
               </g>
-            </g>
 
-            {/* Orbit Ring 2 (Tilted) */}
-            <g
-              className={styles.orbitGroup}
-              style={{ transform: "rotate(45deg)" }}>
-              <ellipse
-                cx='268'
-                cy='250'
-                rx='200'
-                ry='180'
-                stroke='#292926'
-                strokeWidth='1'
-                strokeOpacity='0.15'
-                strokeDasharray='4 4'
+              {/* Planet 2: Small Circle */}
+              <circle
+                className={`${styles.planet} ${styles.planet2}`}
+                r='4'
+                fill='#292926'
               />
-              {/* Planet 2 */}
-              <circle cx='468' cy='250' r='4' fill='#292926' />
-            </g>
 
-            {/* Orbit Ring 3 (Vertical/Reverse) */}
-            <g className={styles.orbitGroup}>
-              <ellipse
-                cx='268'
-                cy='250'
-                rx='70'
-                ry='220'
-                stroke='#292926'
-                strokeWidth='1.5'
-                strokeOpacity='0.2'
+              {/* Planet 3: Small Circle */}
+              <circle
+                className={`${styles.planet} ${styles.planet3}`}
+                r='5'
+                fill='#292926'
               />
-              {/* Planet 3 */}
-              <circle cx='268' cy='30' r='5' fill='#292926' />
-            </g>
 
-            {/* Orbit Ring 4 (New Tilted -30deg) */}
-            <g
-              className={styles.orbitGroup}
-              style={{ transform: "rotate(-30deg)" }}>
-              <ellipse
-                cx='268'
-                cy='250'
-                rx='240'
-                ry='90'
-                stroke='#292926'
-                strokeWidth='1'
-                strokeOpacity='0.2'
-              />
-              <circle cx='508' cy='250' r='4' fill='#292926' />
-              {/* New Custom Planet SVG - Animated along path */}
-              <g className={styles.planetMotion}>
+              {/* Planet 4: Custom SVG */}
+              <g className={`${styles.planet} ${styles.planet4}`}>
                 <svg
                   x='-20'
                   y='-20'
@@ -169,38 +126,13 @@ const MeditatingWoman = () => {
                   />
                 </svg>
               </g>
-            </g>
 
-            {/* Orbit Ring 5 (New Tilted 60deg) */}
-            <g
-              className={styles.orbitGroup}
-              style={{ transform: "rotate(60deg)" }}>
-              <ellipse
-                cx='268'
-                cy='250'
-                rx='190'
-                ry='210'
-                stroke='#292926'
-                strokeWidth='1'
-                strokeOpacity='0.15'
-                strokeDasharray='2 4'
+              {/* Planet 5: Small Circle */}
+              <circle
+                className={`${styles.planet} ${styles.planet5}`}
+                r='3'
+                fill='#292926'
               />
-            </g>
-
-            {/* Orbit Ring 6 (New Horizontal Wide) */}
-            <g
-              className={styles.orbitGroup}
-              style={{ transform: "rotate(15deg)" }}>
-              <ellipse
-                cx='268'
-                cy='250'
-                rx='260'
-                ry='140'
-                stroke='#292926'
-                strokeWidth='0.8'
-                strokeOpacity='0.1'
-              />
-              <circle cx='528' cy='250' r='3' fill='#292926' />
             </g>
           </g>
 

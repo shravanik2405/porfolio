@@ -24,6 +24,7 @@
   z-index: 10;
   line-height: 0.8;
   max-width: 60%;
+  transform: translateY(10vh);
 }
 
 .firstName {
@@ -32,7 +33,6 @@
   margin-bottom: 4vw;
   font-weight: 900;
   letter-spacing: -5px;
-  text-transform: uppercase;
   white-space: nowrap;
 }
 
@@ -42,7 +42,6 @@
   margin-top: 4vw;
   font-weight: normal;
   letter-spacing: 5px;
-  text-transform: uppercase;
   white-space: nowrap;
 }
 
@@ -94,7 +93,6 @@
   .textContainer {
     max-width: 100%;
     align-items: flex-start;
-    padding-top: 10vh;
   }
 
   .firstName,

@@ -40,6 +40,15 @@
   }
 }
 
+@keyframes orbit-infinite {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
 .orbitGroup {
   transform-origin: 268px 250px;
 }
@@ -48,6 +57,12 @@
   offset-path: path("M 508 250 A 240 90 0 1 1 28 250 A 240 90 0 1 1 508 250");
   offset-rotate: 0deg;
   animation: float-planet 6s ease-in-out infinite;
+}
+
+.cssPlanetMotion {
+  offset-path: path("M 488 250 A 220 60 0 1 1 48 250 A 220 60 0 1 1 488 250");
+  offset-rotate: 0deg;
+  animation: orbit-infinite 20s linear infinite;
 }
 
 .orbitSystem circle[fill="url(#auraGradient)"] {

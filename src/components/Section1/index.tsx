@@ -51,7 +51,7 @@ export const Section1 = () => {
               }}>
               S
             </motion.span>
-            HRAVANI
+            hravani
           </motion.h1>
           <motion.h1
             className={styles.lastName}
@@ -72,7 +72,7 @@ export const Section1 = () => {
               }}>
               K
             </motion.span>
-            HATRI
+            hatri
           </motion.h1>
         </div>
 

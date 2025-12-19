@@ -47,7 +47,7 @@
 
 .imageWrapper {
   position: absolute;
-  right: 5%;
+  right: 10%;
   bottom: 40%;
   transform: translateY(18%);
   z-index: 20;
@@ -87,7 +87,7 @@
   }
 
   .container {
-    padding-left: 2%;
+    padding-left: 2%; /* Move text left */
   }
 
   .textContainer {
@@ -110,9 +110,8 @@
   }
 
   .imageWrapper {
-    width: 50vw;
-    min-width: 0;
-    right: -5%;
+    width: 60vw; /* Increased width */
+    right: 15%; /* Move image left */
     bottom: 35%;
     transform: translateY(20%);
   }
@@ -133,7 +132,87 @@
   }
 
   .imageWrapper {
-    width: 60vw;
-    right: -10%;
+    width: 70vw;
+    right: 15%; /* Keep moved left */
   }
 }
+
+/* --- ANIMATIONS START --- */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes arc-slide {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+.svg {
+  width: 150%; 
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* pointer-events: none; Remove this if interactivity is needed, keep if not */
+  overflow: visible;
+  z-index: 10; /* Lower than image */
+}
+
+.girlImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 20; /* Higher than SVG */
+}
+
+.orbitSystem circle[fill="url(#auraGradient)"] {
+  animation: pulse-glow 4s ease-in-out infinite;
+  transform-origin: 268px 250px;
+}
+
+.planet {
+  /* Define the path for all planets matching the SVG path of the orbit */
+  offset-path: path("M 20 280 A 248 248 0 0 1 516 280");
+  offset-rotate: 0deg; 
+  opacity: 0;
+  animation: arc-slide 20s linear infinite;
+}
+
+/* Cascading Delays same as Section 2 */
+.planet1 { animation-delay: 0s; }
+.planet2 { animation-delay: 2s; }
+.planet3 { animation-delay: 4s; }
+.planet4 { animation-delay: 6s; }
+.planet5 { animation-delay: 8s; }
+.planet6 { animation-delay: 10s; }
+.planet7 { animation-delay: 12s; }
+.planet8 { animation-delay: 14s; }
+.planet9 { animation-delay: 16s; }
+.planet10 { animation-delay: 18s; }
+

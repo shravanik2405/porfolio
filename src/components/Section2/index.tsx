@@ -14,7 +14,7 @@ export const Section2 = () => {
           theme.colors.secondary
         ),
       }}>
-      {/* <div className={styles.imageContainer}>
+      <div className={styles.imageContainer}>
         <img
           src={images[0]}
           alt='Books with Cat'
@@ -24,7 +24,7 @@ export const Section2 = () => {
 
       <div className={styles.meditatingContainer}>
         <MeditatingWoman />
-      </div> */}
+      </div>
     </section>
   );
 };

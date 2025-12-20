@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styles from "./styles.module.css";
 import frame1 from "../../assets/frame1.png";
@@ -12,12 +12,27 @@ export const Section1 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 500);
-
-    return () => clearInterval(interval);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, []);
+
+  const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startAnimation = () => {
+    if (intervalRef.current) return;
+    intervalRef.current = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 200); // Faster speed for "petting" feedback
+  };
+
+  const stopAnimation = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    setCurrentImageIndex(0); // Optional: reset to resting state
+  };
 
   return (
     <section
@@ -76,7 +91,11 @@ export const Section1 = () => {
           </motion.h1>
         </div>
 
-        <div className={styles.imageWrapper}>
+        <div
+          className={styles.imageWrapper}
+          onMouseEnter={startAnimation}
+          onMouseLeave={stopAnimation}
+          style={{ cursor: "pointer" }}>
           <img
             src={images[currentImageIndex]}
             alt='Girl Reading'

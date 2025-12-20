@@ -45,6 +45,23 @@
   }
 }
 
+.wallContainer {
+  position: absolute;
+  left: 35%;
+  bottom: 39%;
+  width: 25%;
+  max-width: 400px;
+  z-index: 15;
+  display: flex;
+  align-items: flex-end;
+}
+
+.wallImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .lampContainer {
   position: absolute;
   top: -20px; /* Hanging slightly off-screen top */

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import switch1 from "../../assets/switch1.svg";
 import switch2 from "../../assets/switch2.svg";
 import switch3 from "../../assets/switch3.svg";
+import wall from "../../assets/wall.svg";
 
 
 export const Section3 = () => {
@@ -56,6 +57,10 @@ export const Section3 = () => {
           className={styles.frameImage}
           onClick={handleAnimation}
         />
+      </div>
+
+      <div className={styles.wallContainer}>
+        <img src={wall} alt='Wall Decoration' className={styles.wallImage} />
       </div>
 
       <div className={styles.lampContainer}>

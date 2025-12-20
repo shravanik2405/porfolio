@@ -13,7 +13,7 @@
   /* Position on the left, aligned with the common floor line */
   position: absolute;
   left: 10%;
-  bottom: 39%; /* Matches Section 2 alignment */
+  bottom: 40%; /* Matches Section 2 alignment */
   width: 20%;
   max-width: 300px;
   min-width: 150px;
@@ -35,7 +35,7 @@
   .switchContainer {
     width: 40%; /* Increase size on mobile */
     left: 10%;
-    bottom: 35%; /* Adjust alignment if needed, matching Section 1 mobile tweak */
+    bottom: 40%; /* Adjust alignment if needed, matching Section 1 mobile tweak */
   }
 }
 
@@ -45,35 +45,10 @@
   }
 }
 
-.wallContainer {
-  /* position: absolute; */
-  /* left: 35%; */
-  /* bottom: 39%; */
-  /* width: 100%;
-  top:0;
-  height: 100%;
-  max-width: 400px; */
-  /* z-index: 50; */
-  /* display: flex;
-  align-items: flex-end; */
-}
-
 .wallImage {
   width: 100%;
   height: auto;
   display: block;
-}
-
-.spotlightOverlay {
-  /* position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 39% 25%,
-    transparent 80%,
-    #292926 85%
-  );
-  pointer-events: none;
-  z-index: 22; */
 }
 
 .lampContainer {
@@ -135,4 +110,38 @@
   -webkit-mask-repeat: no-repeat;
   mask-position: center;
   -webkit-mask-position: center; */
+}
+
+@media (max-width: 1024px) {
+  .testContainer {
+    width: 40%;
+    left: 45%;
+  }
+  .lampContainer {
+    left: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .testContainer {
+    width: 50%;
+    left: 40%;
+    bottom: 40%;
+  }
+  .lampContainer {
+    left: 60%;
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testContainer {
+    width: 60%;
+    left: 35%;
+    bottom: 40%;
+  }
+  .lampContainer {
+    left: 60%;
+    width: 70px;
+  }
 }

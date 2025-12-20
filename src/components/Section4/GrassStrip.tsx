@@ -141,13 +141,14 @@ export const GrassStrip: React.FC<GrassStripProps> = ({
     <div style={{ width: "100%", overflow: "hidden", lineHeight: 0 }}>
       <svg
         viewBox={`0 0 ${width} ${height}`}
-        preserveAspectRatio='none'
+        preserveAspectRatio="none"
         style={{
           display: "block",
           width: "100%",
           height: "auto",
           fill: color,
-        }}>
+        }}
+      >
         {/* Grass Layer */}
         <path d={pathData} />
 
@@ -157,29 +158,29 @@ export const GrassStrip: React.FC<GrassStripProps> = ({
             {/* Group 1: Horizontal Patrol (Ping Pong) */}
             <g>
               <animateTransform
-                attributeName='transform'
-                type='translate'
+                attributeName="transform"
+                type="translate"
                 values={bee.xValues
                   .split(";")
                   .map((x) => `${x} ${bee.yFixed}`)
                   .join("; ")}
                 dur={`${bee.duration * 2}s`} // Double duration for round trip
                 begin={`${bee.delay}s`}
-                repeatCount='indefinite'
-                calcMode='spline'
-                keySplines='0.4 0 0.2 1; 0.4 0 0.2 1' // Smooth ease-in-out for turning
+                repeatCount="indefinite"
+                calcMode="spline"
+                keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" // Smooth ease-in-out for turning
               />
 
               {/* Group 2: Vertical Bobbing */}
               <g>
                 <animateTransform
-                  attributeName='transform'
-                  type='translate'
-                  values='0,0; 0,-8; 0,0'
-                  dur='1.5s'
-                  repeatCount='indefinite'
-                  calcMode='spline'
-                  keySplines='0.4 0 0.2 1; 0.4 0 0.2 1'
+                  attributeName="transform"
+                  type="translate"
+                  values="0,0; 0,-8; 0,0"
+                  dur="1.5s"
+                  repeatCount="indefinite"
+                  calcMode="spline"
+                  keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
                 />
 
                 {/* Bee Visuals: Honey Bee Style */}
@@ -191,17 +192,18 @@ export const GrassStrip: React.FC<GrassStripProps> = ({
                     rx={bee.size * 0.8}
                     ry={bee.size * 0.4}
                     fill={color}
-                    opacity='0.4'>
+                    opacity="0.4"
+                  >
                     <animateTransform
-                      attributeName='transform'
-                      type='rotate'
+                      attributeName="transform"
+                      type="rotate"
                       values={`30 ${-bee.size * 0.6} ${-bee.size * 0.4}; -10 ${
                         -bee.size * 0.6
                       } ${-bee.size * 0.4}; 30 ${-bee.size * 0.6} ${
                         -bee.size * 0.4
                       }`}
-                      dur='0.08s'
-                      repeatCount='indefinite'
+                      dur="0.08s"
+                      repeatCount="indefinite"
                     />
                   </ellipse>
                   <ellipse
@@ -210,17 +212,18 @@ export const GrassStrip: React.FC<GrassStripProps> = ({
                     rx={bee.size * 0.8}
                     ry={bee.size * 0.4}
                     fill={color}
-                    opacity='0.4'>
+                    opacity="0.4"
+                  >
                     <animateTransform
-                      attributeName='transform'
-                      type='rotate'
+                      attributeName="transform"
+                      type="rotate"
                       values={`-30 ${bee.size * 0.6} ${-bee.size * 0.4}; 10 ${
                         bee.size * 0.6
                       } ${-bee.size * 0.4}; -30 ${bee.size * 0.6} ${
                         -bee.size * 0.4
                       }`}
-                      dur='0.08s'
-                      repeatCount='indefinite'
+                      dur="0.08s"
+                      repeatCount="indefinite"
                     />
                   </ellipse>
 
@@ -235,7 +238,8 @@ export const GrassStrip: React.FC<GrassStripProps> = ({
                   <g
                     stroke={color}
                     strokeWidth={bee.size * 0.35}
-                    strokeLinecap='round'>
+                    strokeLinecap="round"
+                  >
                     {/* Left Stripe */}
                     <line
                       x1={-bee.size * 0.4}

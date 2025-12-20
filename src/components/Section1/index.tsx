@@ -40,10 +40,11 @@ export const Section1 = () => {
       style={{
         background: theme.gradients.splitBackground(
           theme.colors.primary,
-          theme.colors.secondary
+          theme.colors.secondary,
         ),
-      }}>
-      <img src={birds} alt='Birds' className={styles.birdsImage} />
+      }}
+    >
+      <img src={birds} alt="Birds" className={styles.birdsImage} />
 
       <div className={styles.container}>
         <div className={styles.textContainer}>
@@ -52,7 +53,8 @@ export const Section1 = () => {
             style={{ color: theme.colors.secondary }}
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}>
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <motion.span
               style={{
                 display: "inline-block",
@@ -63,7 +65,8 @@ export const Section1 = () => {
               transition={{
                 rotate: { delay: 2, duration: 0.5, type: "spring" },
                 y: { delay: 2, duration: 0.5, times: [0, 0.5, 1] },
-              }}>
+              }}
+            >
               S
             </motion.span>
             hravani
@@ -73,7 +76,8 @@ export const Section1 = () => {
             style={{ color: theme.colors.primary }}
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}>
+            transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+          >
             <motion.span
               style={{
                 display: "inline-block",
@@ -84,7 +88,8 @@ export const Section1 = () => {
               transition={{
                 rotate: { delay: 2.2, duration: 0.5, type: "spring" },
                 y: { delay: 2.2, duration: 0.5, times: [0, 0.5, 1] },
-              }}>
+              }}
+            >
               K
             </motion.span>
             hatri
@@ -95,10 +100,11 @@ export const Section1 = () => {
           className={styles.imageWrapper}
           onMouseEnter={startAnimation}
           onMouseLeave={stopAnimation}
-          style={{ cursor: "pointer" }}>
+          style={{ cursor: "pointer" }}
+        >
           <img
             src={images[currentImageIndex]}
-            alt='Girl Reading'
+            alt="Girl Reading"
             className={styles.girlImage}
           />
         </div>

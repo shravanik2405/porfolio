@@ -4,12 +4,13 @@ export const theme = {
     secondary: "#292926", // Dark Grey / Black (Now using secondaryDark everywhere)
     textLight: "#ffffff",
     textDark: "#2D2D2D",
+    shadow: "#000000E6",
   },
   fonts: {
     primary: '"Mochiy Pop P One", sans-serif',
   },
   gradients: {
     splitBackground: (topColor: string, bottomColor: string) =>
-      `linear-gradient(to bottom, ${topColor} 60%, ${bottomColor} 60%)`,
+      `linear-gradient(to bottom, ${topColor} 60%, ${bottomColor} 40%)`,
   },
 };

@@ -13,10 +13,11 @@ export const Section: React.FC<SectionProps> = ({ index }) => {
       style={{
         background: theme.gradients.splitBackground(
           theme.colors.primary,
-          theme.colors.secondary
+          theme.colors.secondary,
         ),
         color: theme.colors.textLight,
-      }}>
+      }}
+    >
       <h1>Section {index}</h1>
     </section>
   );

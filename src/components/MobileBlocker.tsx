@@ -1,6 +1,6 @@
 export const MobileBlocker = () => {
   return (
-    <div className='mobile-blocker'>
+    <div className="mobile-blocker">
       <style>{`
         .mobile-blocker {
           display: none;
@@ -33,7 +33,7 @@ export const MobileBlocker = () => {
           }
         }
       `}</style>
-      <div className='mobile-blocker-text'>Coming Soon</div>
+      <div className="mobile-blocker-text">Coming Soon</div>
     </div>
   );
 };

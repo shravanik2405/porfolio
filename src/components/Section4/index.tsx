@@ -10,15 +10,16 @@ export const Section4 = () => {
       style={{
         background: theme.gradients.splitBackground(
           theme.colors.primary,
-          theme.colors.secondary
+          theme.colors.secondary,
         ),
-      }}>
+      }}
+    >
       <div className={styles.treeContainer}>
         <AvocadoTree />
       </div>
       <div className={styles.grassContainer}>
         <GrassStrip
-          color='#292926'
+          color="#292926"
           width={800}
           bladeCount={320}
           height={80}

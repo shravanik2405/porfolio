@@ -11,13 +11,14 @@ export const Section2 = () => {
       style={{
         background: theme.gradients.splitBackground(
           theme.colors.primary,
-          theme.colors.secondary
+          theme.colors.secondary,
         ),
-      }}>
+      }}
+    >
       <div className={styles.imageContainer}>
         <img
           src={images[0]}
-          alt='Books with Cat'
+          alt="Books with Cat"
           className={styles.bookImage}
         />
       </div>

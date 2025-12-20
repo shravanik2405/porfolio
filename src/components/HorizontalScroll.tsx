@@ -49,7 +49,8 @@ export const HorizontalScroll = () => {
           display: "flex",
           height: "100vh",
           overflow: "hidden",
-        }}>
+        }}
+      >
         <motion.div
           style={{
             x,
@@ -58,9 +59,10 @@ export const HorizontalScroll = () => {
             // Apply the same gradient background to the container to mask any sub-pixel gaps between sections
             background: theme.gradients.splitBackground(
               theme.colors.primary,
-              theme.colors.secondary
+              theme.colors.secondary,
             ),
-          }}>
+          }}
+        >
           <Cloud isPaused={isScrolling} />
           <Section1 />
           <Section2 />

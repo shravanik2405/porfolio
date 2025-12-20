@@ -79,7 +79,7 @@
 
 @media (max-width: 1440px) {
   .imageWrapper {
-    width: 15vw; 
+    width: 15vw;
     right: 10%;
   }
   .planet {
@@ -203,7 +203,7 @@
 }
 
 .svg {
-  width: 175%; 
+  width: 175%;
   height: auto;
   position: absolute;
   top: 50%;
@@ -230,20 +230,39 @@
 .planet {
   /* Define the path for all planets matching the SVG path of the orbit */
   offset-path: path("M 20 280 A 248 248 0 0 1 516 280");
-  offset-rotate: 0deg; 
+  offset-rotate: 0deg;
   opacity: 0;
   animation: arc-slide 20s linear infinite;
 }
 
 /* Cascading Delays same as Section 2 */
-.planet1 { animation-delay: 0s; }
-.planet2 { animation-delay: 2s; }
-.planet3 { animation-delay: 4s; }
-.planet4 { animation-delay: 6s; }
-.planet5 { animation-delay: 8s; }
-.planet6 { animation-delay: 10s; }
-.planet7 { animation-delay: 12s; }
-.planet8 { animation-delay: 14s; }
-.planet9 { animation-delay: 16s; }
-.planet10 { animation-delay: 18s; }
-
+.planet1 {
+  animation-delay: 0s;
+}
+.planet2 {
+  animation-delay: 2s;
+}
+.planet3 {
+  animation-delay: 4s;
+}
+.planet4 {
+  animation-delay: 6s;
+}
+.planet5 {
+  animation-delay: 8s;
+}
+.planet6 {
+  animation-delay: 10s;
+}
+.planet7 {
+  animation-delay: 12s;
+}
+.planet8 {
+  animation-delay: 14s;
+}
+.planet9 {
+  animation-delay: 16s;
+}
+.planet10 {
+  animation-delay: 18s;
+}

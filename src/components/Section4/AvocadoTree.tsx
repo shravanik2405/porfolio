@@ -84,7 +84,7 @@ const AvocadoTree = () => {
       length: number,
       angle: number,
       depth: number,
-      width: number
+      width: number,
     ) => {
       const endX = x + length * Math.cos(angle);
       const endY = y + length * Math.sin(angle);
@@ -161,7 +161,7 @@ const AvocadoTree = () => {
 
       for (let i = 0; i < clusterSize; i++) {
         const randomLeafIndex = Math.floor(
-          Math.random() * treeData.leaves.length
+          Math.random() * treeData.leaves.length,
         );
         const spawnPoint = treeData.leaves[randomLeafIndex];
 
@@ -229,82 +229,84 @@ const AvocadoTree = () => {
         display: "flex",
         justifyContent: "center",
         overflow: "hidden",
-      }}>
+      }}
+    >
       <svg
-        viewBox='0 0 800 800'
+        viewBox="0 0 800 800"
         style={{ width: "100%", maxWidth: "56rem", height: "auto" }}
-        preserveAspectRatio='xMidYMax meet'>
+        preserveAspectRatio="xMidYMax meet"
+      >
         <defs>
           <path
-            id='avocado-leaf'
-            d='M0,0 C10,-15 40,-5 50,0 C40,5 10,15 0,0 Z'
+            id="avocado-leaf"
+            d="M0,0 C10,-15 40,-5 50,0 C40,5 10,15 0,0 Z"
           />
 
           {/* Detailed 5-Petal Flower Group */}
-          <g id='tiny-flower'>
+          <g id="tiny-flower">
             {/* Stem */}
             <line
-              x1='0'
-              y1='0'
-              x2='0'
-              y2='-12'
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="-12"
               stroke={FLOWER_ORANGE}
-              strokeWidth='1.5'
-              strokeLinecap='round'
+              strokeWidth="1.5"
+              strokeLinecap="round"
             />
 
             {/* Flower Head Group */}
-            <g transform='translate(0, -12)'>
+            <g transform="translate(0, -12)">
               {/* 5 White Petals */}
               <ellipse
-                cx='0'
-                cy='-5'
-                rx='2.5'
-                ry='5'
-                fill='white'
-                transform='rotate(0)'
+                cx="0"
+                cy="-5"
+                rx="2.5"
+                ry="5"
+                fill="white"
+                transform="rotate(0)"
               />
               <ellipse
-                cx='0'
-                cy='-5'
-                rx='2.5'
-                ry='5'
-                fill='white'
-                transform='rotate(72)'
+                cx="0"
+                cy="-5"
+                rx="2.5"
+                ry="5"
+                fill="white"
+                transform="rotate(72)"
               />
               <ellipse
-                cx='0'
-                cy='-5'
-                rx='2.5'
-                ry='5'
-                fill='white'
-                transform='rotate(144)'
+                cx="0"
+                cy="-5"
+                rx="2.5"
+                ry="5"
+                fill="white"
+                transform="rotate(144)"
               />
               <ellipse
-                cx='0'
-                cy='-5'
-                rx='2.5'
-                ry='5'
-                fill='white'
-                transform='rotate(216)'
+                cx="0"
+                cy="-5"
+                rx="2.5"
+                ry="5"
+                fill="white"
+                transform="rotate(216)"
               />
               <ellipse
-                cx='0'
-                cy='-5'
-                rx='2.5'
-                ry='5'
-                fill='white'
-                transform='rotate(288)'
+                cx="0"
+                cy="-5"
+                rx="2.5"
+                ry="5"
+                fill="white"
+                transform="rotate(288)"
               />
 
               {/* Orange Center */}
-              <circle cx='0' cy='0' r='2.5' fill={FLOWER_ORANGE} />
+              <circle cx="0" cy="0" r="2.5" fill={FLOWER_ORANGE} />
             </g>
           </g>
         </defs>
 
         {/* Branches */}
-        <g strokeLinecap='round' strokeLinejoin='round'>
+        <g strokeLinecap="round" strokeLinejoin="round">
           {treeData.branches.map((b) => (
             <line
               key={b.key}
@@ -325,7 +327,8 @@ const AvocadoTree = () => {
               key={l.key}
               transform={`translate(${l.x}, ${l.y}) rotate(${
                 l.angle * (180 / Math.PI)
-              })`}>
+              })`}
+            >
               <g
                 style={{
                   animation: `leaf-sway ${
@@ -333,9 +336,10 @@ const AvocadoTree = () => {
                   }s ease-in-out infinite alternate`,
                   animationDelay: `-${l.delay}s`,
                   transformOrigin: "0 0",
-                }}>
+                }}
+              >
                 <use
-                  href='#avocado-leaf'
+                  href="#avocado-leaf"
                   fill={PRIMARY_COLOR}
                   fillOpacity={0.95}
                   style={{ transform: `scale(${l.scale})` }}
@@ -350,15 +354,17 @@ const AvocadoTree = () => {
           {treeData.staticFlowers.map((f) => (
             <g
               key={f.key}
-              transform={`translate(${f.x}, ${f.y}) rotate(${90})`}>
+              transform={`translate(${f.x}, ${f.y}) rotate(${90})`}
+            >
               <g
                 style={{
                   animation: `leaf-sway ${
                     4.5 / windIntensity
                   }s ease-in-out infinite alternate`,
                   transformOrigin: "0 0",
-                }}>
-                <use href='#tiny-flower' transform='scale(0.8)' />
+                }}
+              >
+                <use href="#tiny-flower" transform="scale(0.8)" />
               </g>
             </g>
           ))}
@@ -369,9 +375,10 @@ const AvocadoTree = () => {
           {fallingFlowers.map((flower) => (
             <g
               key={flower.id}
-              transform={`translate(${flower.x}, ${flower.y})`}>
+              transform={`translate(${flower.x}, ${flower.y})`}
+            >
               {/* Rotated 180 to make the stem point down (gravity) */}
-              <use href='#tiny-flower' transform='rotate(180) scale(0.9)' />
+              <use href="#tiny-flower" transform="rotate(180) scale(0.9)" />
             </g>
           ))}
         </g>

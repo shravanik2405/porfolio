@@ -46,14 +46,16 @@
 }
 
 .wallContainer {
-  position: absolute;
-  left: 35%;
-  bottom: 39%;
-  width: 25%;
-  max-width: 400px;
-  z-index: 15;
-  display: flex;
-  align-items: flex-end;
+  /* position: absolute; */
+  /* left: 35%; */
+  /* bottom: 39%; */
+  /* width: 100%;
+  top:0;
+  height: 100%;
+  max-width: 400px; */
+  /* z-index: 50; */
+  /* display: flex;
+  align-items: flex-end; */
 }
 
 .wallImage {
@@ -62,10 +64,23 @@
   display: block;
 }
 
+.spotlightOverlay {
+  /* position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 39% 25%,
+    transparent 80%,
+    #292926 85%
+  );
+  pointer-events: none;
+  z-index: 22; */
+}
+
+
 .lampContainer {
   position: absolute;
   top: -20px; /* Hanging slightly off-screen top */
-  left: 35%; /* Moved to left side */
+  left: 40%; /* Moved to left side */
   width: 100px;
   height: auto;
   z-index: 25;
@@ -93,3 +108,31 @@
 }
 
 
+.testContainer {
+  position: absolute;
+  left: 35%;
+  bottom: 35%;
+  width: 35%;
+  max-width: 600px;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  top:0;
+  
+
+}
+
+.darkOverlay {
+  /* position: absolute;
+  inset: 0;
+  background-color: #292926;
+  pointer-events: none;
+  z-index: 16;
+  transition: opacity 0.5s ease;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center; */
+}

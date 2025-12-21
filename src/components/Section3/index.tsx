@@ -45,38 +45,38 @@ export const Section3 = () => {
     <section
       className={styles.section}
       style={{
-        background:isSwitched ? theme.gradients.splitBackground(
+        // background:isSwitched ? theme.gradients.splitBackground(
+        //   theme.colors.primary,
+        //   theme.colors.secondary,
+        // ) : theme.gradients.splitBackground(
+        //   theme.colors.shadow,
+        //   theme.colors.secondary,
+        // )
+        background: theme.gradients.splitBackground(
           theme.colors.primary,
-          theme.colors.secondary,
-        ) : theme.gradients.splitBackground(
-          theme.colors.shadow,
-          theme.colors.secondary,
-        ) 
-      }}
-    >
+          theme.colors.secondary
+        ),
+      }}>
       <div className={styles.switchContainer}>
         <img
           src={switchImages[currentImageIndex]}
-          alt="Switch Animation"
+          alt='Switch Animation'
           className={styles.frameImage}
           onClick={handleAnimation}
         />
       </div>
-      <div
-        className={styles.testContainer}
-       
-      >
+      <div className={styles.testContainer}>
         <div className={styles.wallContainer}>
           {isSwitched ? (
             <img
               src={wall}
-              alt="Wall Decoration"
+              alt='Wall Decoration'
               className={styles.wallImage}
             />
           ) : (
             <img
               src={wallDark}
-              alt="Wall Decoration"
+              alt='Wall Decoration'
               className={styles.wallImage}
             />
           )}
@@ -85,14 +85,19 @@ export const Section3 = () => {
 
       <div className={styles.lampContainer}>
         <div
+          className={styles.lightBeam}
+          style={{ opacity: isSwitched ? 1 : 0 }}></div>
+        <div
+          className={styles.darkBeam}
+          style={{ opacity: isSwitched ? 0 : 1 }}></div>
+        <div
           className={styles.glow}
-          style={{ opacity: isSwitched ? 0.6 : 0 }}
-        ></div>
-        <svg className={styles.lampSvg} viewBox="0 0 256 256">
-          <g transform="translate(1.4 1.4) scale(2.81)">
+          style={{ opacity: isSwitched ? 0.6 : 0 }}></div>
+        <svg className={styles.lampSvg} viewBox='0 0 256 256'>
+          <g transform='translate(1.4 1.4) scale(2.81)'>
             <path
-              id="lamp-bulb"
-              d="M 33.424 60.57 C 34.197 66.28 39.078 70.685 45 70.685 S 55.803 66.28 56.576 60.57 C 48.859 58.699 41.141 58.699 33.424 60.57 z"
+              id='lamp-bulb'
+              d='M 33.424 60.57 C 34.197 66.28 39.078 70.685 45 70.685 S 55.803 66.28 56.576 60.57 C 48.859 58.699 41.141 58.699 33.424 60.57 z'
               style={{
                 fill: isSwitched ? "#ffff" : "#444",
                 transition: "fill 0.3s",
@@ -100,11 +105,11 @@ export const Section3 = () => {
             />
 
             <path
-              d="M 46 15.485 V 1 c 0 -0.552 -0.448 -1 -1 -1 s -1 0.448 -1 1 v 14.485 h -6.586 v 9.039 c 2.427 -0.614 4.968 -0.943 7.586 -0.943 s 5.159 0.329 7.586 0.943 v -9.039 H 46 z"
+              d='M 46 15.485 V 1 c 0 -0.552 -0.448 -1 -1 -1 s -1 0.448 -1 1 v 14.485 h -6.586 v 9.039 c 2.427 -0.614 4.968 -0.943 7.586 -0.943 s 5.159 0.329 7.586 0.943 v -9.039 H 46 z'
               style={{ fill: "#596C76" }}
             />
             <path
-              d="M 75.849 60.57 H 14.151 v -8.14 c 0 -17.037 13.811 -30.849 30.849 -30.849 h 0 c 17.037 0 30.849 13.811 30.849 30.849 V 60.57 z"
+              d='M 75.849 60.57 H 14.151 v -8.14 c 0 -17.037 13.811 -30.849 30.849 -30.849 h 0 c 17.037 0 30.849 13.811 30.849 30.849 V 60.57 z'
               style={{ fill: "#8C9FAC" }}
             />
           </g>

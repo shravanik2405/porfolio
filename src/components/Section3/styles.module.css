@@ -10,10 +10,9 @@
 }
 
 .switchContainer {
-  /* Position on the left, aligned with the common floor line */
   position: absolute;
   left: 10%;
-  bottom: 40%; /* Matches Section 2 alignment */
+  bottom: 35%;
   width: 20%;
   max-width: 300px;
   min-width: 150px;
@@ -45,6 +44,10 @@
   }
 }
 
+.wallContainer {
+  width: 100%;
+}
+
 .wallImage {
   width: 100%;
   height: auto;
@@ -54,10 +57,11 @@
 .lampContainer {
   position: absolute;
   top: -20px; /* Hanging slightly off-screen top */
-  left: 40%; /* Moved to left side */
+  left: 42.5%; /* Centered relative to wall (25% left + 17.5% half-width) */
+  transform: translateX(-50%);
   width: 100px;
   height: auto;
-  z-index: 200;
+  z-index: 300;
   display: flex;
   justify-content: center;
 }
@@ -66,6 +70,64 @@
   width: 100%;
   height: auto;
   overflow: visible;
+}
+
+.lightBeam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px; /* Wide spread */
+  height: 800px; /* Long beam */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 224, 0.3) 0%,
+    rgba(255, 255, 224, 0.1) 40%,
+    transparent 80%
+  );
+  clip-path: polygon(47.3% 0%, 52.7% 0%, 100% 100%, 0% 100%);
+  pointer-events: none;
+  z-index: -1; /* Behind the bulb but in front of wall */
+  transition: opacity 0.3s ease;
+  transform-origin: top center;
+}
+
+.darkBeam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 800px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.2) 40%,
+    transparent 80%
+  );
+  clip-path: polygon(47.3% 0%, 52.7% 0%, 100% 100%, 0% 100%);
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  transform-origin: top center;
+}
+
+@media (max-width: 768px) {
+  .lightBeam,
+  .darkBeam {
+    width: 600px;
+    height: 600px;
+    clip-path: polygon(46.7% 0%, 53.3% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@media (max-width: 480px) {
+  .lightBeam,
+  .darkBeam {
+    width: 400px;
+    height: 500px;
+    clip-path: polygon(45.5% 0%, 54.5% 0%, 100% 100%, 0% 100%);
+  }
 }
 
 .glow {
@@ -87,7 +149,7 @@
 
 .testContainer {
   position: absolute;
-  left: 35%;
+  left: 25%;
   bottom: 40%;
   width: 35%;
   max-width: 600px;
@@ -115,21 +177,21 @@
 @media (max-width: 1024px) {
   .testContainer {
     width: 40%;
-    left: 45%;
+    left: 35%;
   }
   .lampContainer {
-    left: 55%;
+    left: 55%; /* Centered relative to wall (35% left + 20% half-width) */
   }
 }
 
 @media (max-width: 768px) {
   .testContainer {
     width: 50%;
-    left: 40%;
+    left: 30%;
     bottom: 40%;
   }
   .lampContainer {
-    left: 60%;
+    left: 55%; /* Centered relative to wall (30% left + 25% half-width) */
     width: 80px;
   }
 }
@@ -137,11 +199,11 @@
 @media (max-width: 480px) {
   .testContainer {
     width: 60%;
-    left: 35%;
+    left: 25%;
     bottom: 40%;
   }
   .lampContainer {
-    left: 60%;
+    left: 55%; /* Centered relative to wall (25% left + 30% half-width) */
     width: 70px;
   }
 }

@@ -15,6 +15,18 @@ export const HorizontalScroll = () => {
 
   const [isScrolling, setIsScrolling] = useState(false);
   const scrollTimeout = useRef<number | undefined>(undefined);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +50,13 @@ export const HorizontalScroll = () => {
     };
   }, []);
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    // Desktop: 4 * 100vw = 400vw total. Viewport 100vw. Move -300vw (-75%)
+    // Mobile: 4 * 150vw = 600vw total. Viewport 100vw. Move -500vw (-83.33%)
+    ["0%", isMobile ? `-${(500 / 600) * 100}%` : "-75%"]
+  );
 
   return (
     <div ref={targetRef} style={{ height: "400vh", position: "relative" }}>
@@ -49,8 +67,7 @@ export const HorizontalScroll = () => {
           display: "flex",
           height: "100vh",
           overflow: "hidden",
-        }}
-      >
+        }}>
         <motion.div
           style={{
             x,
@@ -59,10 +76,9 @@ export const HorizontalScroll = () => {
             // Apply the same gradient background to the container to mask any sub-pixel gaps between sections
             background: theme.gradients.splitBackground(
               theme.colors.primary,
-              theme.colors.secondary,
+              theme.colors.secondary
             ),
-          }}
-        >
+          }}>
           <Cloud isPaused={isScrolling} />
           <Section1 />
           <Section2 />

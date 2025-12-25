@@ -89,61 +89,80 @@
 
 /* Treat tablets like desktop; tighten layout only on phones */
 @media (max-width: 767px) {
-  /* Adjust for vertical layout on mobile/tablet */
+  /* Side-by-side layout on mobile with extensive width */
   .section {
-    width: 100%;
+    width: 150vw;
     height: 100vh;
-    min-height: 600px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
   }
 
   .container {
-    padding-left: 2%; /* Move text left */
+    padding-left: 5vw;
+    padding-right: 5vw;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .textContainer {
-    max-width: 100%;
+    width: 80vw;
+    max-width: 80vw;
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
+    z-index: 20;
+    flex-shrink: 0;
   }
 
   .firstName,
   .lastName {
     font-size: 14vw;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    white-space: nowrap;
   }
 
   .firstName {
-    margin-bottom: 3vw;
+    margin-bottom: 0.5rem;
   }
 
   .lastName {
-    margin-top: 3vw;
+    margin-top: 0.5rem;
   }
 
   .imageWrapper {
-    width: 60vw; /* Increased width */
-    right: 15%; /* Move image left */
-    bottom: 35%;
-    transform: translateY(20%);
+    position: absolute;
+    right: 5vw;
+    bottom: 30%;
+    width: 50vw;
+    max-width: 250px;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transform: none;
   }
 }
 
 @media (max-width: 480px) {
+  /* Phone sizes */
   .firstName,
   .lastName {
-    font-size: 13vw;
-  }
-
-  .firstName {
-    margin-bottom: 2vw;
-  }
-
-  .lastName {
-    margin-top: 2vw;
+    font-size: 15vw;
   }
 
   .imageWrapper {
-    width: 70vw;
-    right: 15%; /* Keep moved left */
+    width: 60vw;
+    right: 0;
+    bottom: 25%;
   }
 }
 

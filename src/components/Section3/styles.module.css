@@ -31,27 +31,43 @@
 }
 
 @media (max-width: 767px) {
-  .switchContainer {
-    width: 40%; /* Increase size on mobile */
-    left: 10%;
-    bottom: 40%; /* Adjust alignment if needed, matching Section 1 mobile tweak */
+  .section {
+    width: 150vw;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
-}
 
-@media (max-width: 480px) {
   .switchContainer {
-    width: 50%;
+    width: 30vw;
+    left: 10vw;
+    bottom: 35%;
   }
-}
 
-.wallContainer {
-  width: 100%;
-}
+  .testContainer {
+    width: 60vw;
+    right: 10vw;
+    left: auto;
+    bottom: 35%;
+    display: flex;
+    justify-content: flex-end;
+  }
 
-.wallImage {
-  width: 100%;
-  height: auto;
-  display: block;
+  .lampContainer {
+    right: 25vw;
+    left: auto;
+    transform: translateX(50%);
+    top: -20px;
+    width: 100px;
+  }
+
+  .lightBeam,
+  .darkBeam,
+  .glow {
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .lampContainer {

@@ -35,3 +35,31 @@
   margin-bottom: -10px; /* Align with tree base */
   pointer-events: none; /* Let clicks pass through if needed */
 }
+
+@media (max-width: 767px) {
+  .section {
+    width: 150vw;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .treeContainer {
+    right: 5vw;
+    bottom: 40%;
+    width: 80vw;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .grassContainer {
+    right: 5vw;
+    bottom: 40%;
+    width: 80vw;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}

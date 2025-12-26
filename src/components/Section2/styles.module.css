@@ -45,14 +45,26 @@
     bottom: 40%;
     left: auto;
     right: 15vw;
-    width: 50vw;
-    max-width: 250px;
+    width: 60vw; /* 40% of 150vw */
+    max-width: 300px;
   }
 
   .imageContainer {
     bottom: 40%;
     left: 10vw;
-    width: 50vw;
-    max-width: 250px;
+    width: 75vw; /* 50% of 150vw */
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 425px) {
+  /* Create space between elements */
+  .meditatingContainer {
+    width: 55vw; /* Scale down */
+    bottom: 39%;
+  }
+
+  .imageContainer {
+    width: 65vw; /* Scale down */
   }
 }

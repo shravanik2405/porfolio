@@ -60,11 +60,11 @@
 @media (max-width: 425px) {
   /* Create space between elements */
   .meditatingContainer {
-    width: 55vw; /* Scale down */
+    width: 45vw; /* Scale down further to prevent overlap */
     bottom: 39%;
   }
 
   .imageContainer {
-    width: 65vw; /* Scale down */
+    width: 55vw; /* Scale down further to prevent overlap */
   }
 }

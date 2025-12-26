@@ -31,43 +31,32 @@
 }
 
 @media (max-width: 767px) {
+  .switchContainer {
+    width: 40%; /* Increase size on mobile */
+    left: 10%;
+    bottom: 40%; /* Adjust alignment if needed, matching Section 1 mobile tweak */
+  }
+}
+
+@media (max-width: 480px) {
   .section {
     width: 150vw;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
   }
 
   .switchContainer {
-    width: 30vw;
-    left: 10vw;
-    bottom: 35%;
+    width: 50vw;
+    left: 5vw;
   }
+}
 
-  .testContainer {
-    width: 60vw;
-    right: 10vw;
-    left: auto;
-    bottom: 35%;
-    display: flex;
-    justify-content: flex-end;
-  }
+.wallContainer {
+  width: 100%;
+}
 
-  .lampContainer {
-    right: 25vw;
-    left: auto;
-    transform: translateX(50%);
-    top: -20px;
-    width: 100px;
-  }
-
-  .lightBeam,
-  .darkBeam,
-  .glow {
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+.wallImage {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .lampContainer {
@@ -214,12 +203,12 @@
 
 @media (max-width: 480px) {
   .testContainer {
-    width: 60%;
-    left: 25%;
+    width: 60vw;
+    left: 70vw; /* Positioned after the switch container */
     bottom: 40%;
   }
   .lampContainer {
-    left: 55%; /* Centered relative to wall (25% left + 30% half-width) */
+    left: 100vw; /* Centered on wall: 70vw + (60vw / 2) */
     width: 70px;
   }
 }

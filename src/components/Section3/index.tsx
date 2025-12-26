@@ -1,6 +1,6 @@
 import { theme } from "../../theme";
 import styles from "./styles.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import switch1 from "../../assets/switch1.svg";
 import switch2 from "../../assets/switch2.svg";
@@ -12,8 +12,13 @@ export const Section3 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSwitched, setIsSwitched] = useState(false);
   const switchImages = [switch1, switch2, switch3];
+  const isAnimating = useRef(false);
+  const switchContainerRef = useRef<HTMLDivElement>(null);
 
   const handleAnimation = () => {
+    if (isAnimating.current) return;
+    isAnimating.current = true;
+
     const targetIndex = isSwitched ? 0 : switchImages.length - 1;
     let currentFrame = currentImageIndex;
 
@@ -29,6 +34,7 @@ export const Section3 = () => {
       if (currentFrame === targetIndex) {
         clearInterval(intervalId);
         setIsSwitched(!isSwitched);
+        isAnimating.current = false;
       }
     }, 200);
   };
@@ -41,23 +47,39 @@ export const Section3 = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isSwitched && !isAnimating.current) {
+            handleAnimation();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (switchContainerRef.current) {
+      observer.observe(switchContainerRef.current);
+    }
+
+    return () => {
+      if (switchContainerRef.current) {
+        observer.unobserve(switchContainerRef.current);
+      }
+    };
+  }, [isSwitched]); // Re-run when state changes to ensure correct logic
+
   return (
     <section
       className={styles.section}
       style={{
-        // background:isSwitched ? theme.gradients.splitBackground(
-        //   theme.colors.primary,
-        //   theme.colors.secondary,
-        // ) : theme.gradients.splitBackground(
-        //   theme.colors.shadow,
-        //   theme.colors.secondary,
-        // )
         background: theme.gradients.splitBackground(
           theme.colors.primary,
           theme.colors.secondary
         ),
       }}>
-      <div className={styles.switchContainer}>
+      <div className={styles.switchContainer} ref={switchContainerRef}>
         <img
           src={switchImages[currentImageIndex]}
           alt='Switch Animation'

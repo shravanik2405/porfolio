@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Section1 } from "./Section1";
 import { Section2 } from "./Section2";
@@ -50,8 +50,14 @@ export const HorizontalScroll = () => {
     };
   }, []);
 
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   const x = useTransform(
-    scrollYProgress,
+    smoothProgress,
     [0, 1],
     // Desktop: 4 * 100vw = 400vw total. Viewport 100vw. Move -300vw (-75%)
     // Mobile: 4 * 150vw = 600vw total. Viewport 100vw. Move -500vw (-83.33%)
@@ -60,6 +66,22 @@ export const HorizontalScroll = () => {
 
   return (
     <div ref={targetRef} style={{ height: "400vh", position: "relative" }}>
+      {/* Ghost Snap Targets */}
+      {[0, 1, 2, 3].map((index) => (
+        <div
+          key={index}
+          style={{
+            position: "absolute",
+            top: `${index * 100}vh`,
+            left: 0,
+            width: "100%",
+            height: "100vh",
+            scrollSnapAlign: "start",
+            pointerEvents: "none",
+          }}
+        />
+      ))}
+
       <div
         style={{
           position: "sticky",

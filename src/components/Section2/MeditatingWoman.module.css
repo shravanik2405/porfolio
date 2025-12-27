@@ -54,6 +54,7 @@
 
 .planet {
   /* Define the path for all planets */
+  /* Default Desktop: R=320 */
   offset-path: path("M -52 280 A 320 320 0 0 1 588 280");
   offset-rotate: 0deg; /* Keep planets upright or auto to follow path tangent */
   /* transform-box: fill-box; */
@@ -63,6 +64,20 @@
   opacity: 0;
 
   animation: arc-slide 20s linear infinite;
+}
+
+@media (max-width: 1024px) {
+  .planet {
+    /* Tablet: R=260 */
+    offset-path: path("M 8 280 A 260 260 0 0 1 528 280");
+  }
+}
+
+@media (max-width: 768px) {
+  .planet {
+    /* Mobile: R=200 */
+    offset-path: path("M 68 280 A 200 200 0 0 1 468 280");
+  }
 }
 
 /* Cascading Delays */

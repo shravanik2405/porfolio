@@ -87,6 +87,12 @@
   }
 }
 
+@media (min-width: 1440px) {
+  .imageWrapper {
+    right: 20%;
+  }
+}
+
 /* Treat tablets like desktop; tighten layout only on phones */
 @media (max-width: 767px) {
   /* Side-by-side layout on mobile with extensive width */

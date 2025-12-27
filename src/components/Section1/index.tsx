@@ -12,27 +12,15 @@ export const Section1 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
-
-  const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const startAnimation = () => {
-    if (intervalRef.current) return;
-    intervalRef.current = setInterval(() => {
+    // Frame 0 (Resting): 700ms
+    // Frame 1 (Petting): 200ms
+    const durations = [1000, 200];
+    const timeout = setTimeout(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 200); // Faster speed for "petting" feedback
-  };
+    }, durations[currentImageIndex]);
 
-  const stopAnimation = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-    setCurrentImageIndex(0); // Optional: reset to resting state
-  };
+    return () => clearTimeout(timeout);
+  }, [currentImageIndex]);
 
   return (
     <section
@@ -40,11 +28,10 @@ export const Section1 = () => {
       style={{
         background: theme.gradients.splitBackground(
           theme.colors.primary,
-          theme.colors.secondary,
+          theme.colors.secondary
         ),
-      }}
-    >
-      <img src={birds} alt="Birds" className={styles.birdsImage} />
+      }}>
+      <img src={birds} alt='Birds' className={styles.birdsImage} />
 
       <div className={styles.container}>
         <div className={styles.textContainer}>
@@ -53,8 +40,7 @@ export const Section1 = () => {
             style={{ color: theme.colors.secondary }}
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
+            transition={{ duration: 1, ease: "easeOut" }}>
             <motion.span
               style={{
                 display: "inline-block",
@@ -65,8 +51,7 @@ export const Section1 = () => {
               transition={{
                 rotate: { delay: 2, duration: 0.5, type: "spring" },
                 y: { delay: 2, duration: 0.5, times: [0, 0.5, 1] },
-              }}
-            >
+              }}>
               S
             </motion.span>
             hravani
@@ -76,8 +61,7 @@ export const Section1 = () => {
             style={{ color: theme.colors.primary }}
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-          >
+            transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}>
             <motion.span
               style={{
                 display: "inline-block",
@@ -88,23 +72,17 @@ export const Section1 = () => {
               transition={{
                 rotate: { delay: 2.2, duration: 0.5, type: "spring" },
                 y: { delay: 2.2, duration: 0.5, times: [0, 0.5, 1] },
-              }}
-            >
+              }}>
               K
             </motion.span>
             hatri
           </motion.h1>
         </div>
 
-        <div
-          className={styles.imageWrapper}
-          onMouseEnter={startAnimation}
-          onMouseLeave={stopAnimation}
-          style={{ cursor: "pointer" }}
-        >
+        <div className={styles.imageWrapper}>
           <img
             src={images[currentImageIndex]}
-            alt="Girl Reading"
+            alt='Girl Reading'
             className={styles.girlImage}
           />
         </div>

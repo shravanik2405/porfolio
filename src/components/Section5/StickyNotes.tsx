@@ -1,0 +1,249 @@
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import styles from "./StickyNotes.module.css";
+
+// -------------------- DATA --------------------
+const notes = [
+  {
+    id: 1,
+    title: "UI Design",
+    text: "I design playful, colorful interfaces that feel alive 🎨",
+    color: "#FF5F6D",
+    rotate: -6,
+  },
+  {
+    id: 2,
+    title: "Micro‑interactions",
+    text: "Tiny animations, big personality ✨",
+    color: "#FFC371",
+    rotate: 5,
+  },
+  {
+    id: 3,
+    title: "React",
+    text: "My comfort zone for building delightful products ⚛️",
+    color: "#6EE7B7",
+    rotate: -3,
+  },
+  {
+    id: 4,
+    title: "Motion",
+    text: "Animation is not decoration — it’s communication 💃",
+    color: "#60A5FA",
+    rotate: 7,
+  },
+  {
+    id: 5,
+    title: "UX",
+    text: "Clean UX always wins 🧠",
+    color: "#C084FC",
+    rotate: -4,
+  },
+];
+
+// -------------------- HOOK --------------------
+function useWindowSize() {
+  const [size, setSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const update = () =>
+      setSize({ width: window.innerWidth, height: window.innerHeight });
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return size;
+}
+
+// -------------------- SCATTER LAYOUTS --------------------
+const scatterLayouts: ((
+  i: number,
+  n: number,
+  p: number
+) => { x: number; y: number })[] = [
+  (i, n, r) => {
+    const a = (i / n) * Math.PI * 2;
+    return { x: Math.cos(a) * r, y: Math.sin(a) * r };
+  },
+  (i, _n, gap) => ({
+    x: (i - 2) * gap,
+    y: i % 2 === 0 ? -gap * 0.6 : gap * 0.6,
+  }),
+  (i, _n, gap) => {
+    const a = i * 1.4;
+    const r = gap * (i + 1) * 0.4;
+    return { x: Math.cos(a) * r, y: Math.sin(a) * r };
+  },
+  (i, _n, gap) => ({
+    x: ((i % 3) - 1) * gap,
+    y: (Math.floor(i / 3) - 1) * gap,
+  }),
+];
+
+// -------------------- COMPONENT --------------------
+export default function StickyNotes() {
+  const { width, height } = useWindowSize();
+  const isMobile = width < 768;
+
+  // Ensure client-side calculation to prevent hydration mismatch (0 init)
+  // But for now, we'll just guard or use the values.
+
+  const containerSize = Math.min(width || 800, height || 600, 560);
+  const noteSize = isMobile ? containerSize * 0.32 : 176;
+  const gap = noteSize * 1.15;
+
+  const [scatter, setScatter] = useState(false);
+  const [layoutIndex, setLayoutIndex] = useState(0);
+
+  return (
+    <div className={styles.wrapper}>
+      <div
+        className={styles.notesContainer}
+        style={{ width: containerSize, height: containerSize }}
+        onMouseEnter={
+          !isMobile
+            ? () => {
+                setLayoutIndex((i) => (i + 1) % scatterLayouts.length);
+                setScatter(true);
+              }
+            : undefined
+        }
+        onMouseLeave={!isMobile ? () => setScatter(false) : undefined}
+        onClick={
+          isMobile
+            ? () => {
+                setLayoutIndex((i) => (i + 1) % scatterLayouts.length);
+                setScatter((s) => !s);
+              }
+            : undefined
+        }>
+        {notes.map((note, index) => {
+          const { x, y } = scatterLayouts[layoutIndex](
+            index,
+            notes.length,
+            gap
+          );
+
+          // Stack in the center initially, but looser
+          const center = containerSize / 2 - noteSize / 2;
+          const baseTop = center + (index - 2) * 30; // Increased spread
+          const baseLeft = center + (index - 2) * 15;
+
+          return (
+            <motion.div
+              key={note.id}
+              initial={{
+                opacity: 0,
+                scale: 0.6,
+                y: 120,
+                rotate: note.rotate * 2,
+              }}
+              animate={{
+                opacity: 1,
+                scale: scatter ? 1.05 : 1,
+                x: scatter ? x : 0,
+                y: scatter ? y : 0,
+                rotate: scatter ? note.rotate * 0.5 : note.rotate,
+              }}
+              transition={{ type: "spring", stiffness: 220, damping: 16 }}
+              drag
+              dragElastic={0.4}
+              dragMomentum={false}
+              className={styles.note}
+              style={{
+                width: noteSize,
+                height: noteSize,
+                top: baseTop,
+                left: baseLeft,
+                borderRadius: 12,
+                backgroundColor: note.color,
+              }}>
+              {/* Limbs */}
+              {/* Left Arm */}
+              <motion.div
+                className={styles.limb}
+                style={{
+                  height: 40,
+                  top: "40%", // Moved down slightly
+                  left: 4, // Brought closer (was -2)
+                  originY: 0,
+                }}
+                animate={
+                  scatter
+                    ? { rotate: 50, x: -15, y: -5 } // Open
+                    : { rotate: 140, x: 10, y: 0 } // Wrapped/Hugged
+                }
+              />
+              {/* Right Arm */}
+              <motion.div
+                className={styles.limb}
+                style={{
+                  height: 40,
+                  top: "40%", // Moved down slightly
+                  right: 4, // Brought closer (was -2)
+                  originY: 0,
+                }}
+                animate={
+                  scatter
+                    ? { rotate: -50, x: 15, y: -5 } // Open
+                    : { rotate: -140, x: -10, y: 0 } // Wrapped/Hugged
+                }
+              />
+              {/* Left Leg */}
+              <motion.div
+                className={`${styles.limb} ${styles.leg} ${styles.legLeft}`}
+                style={{
+                  height: 35,
+                  bottom: -15,
+                  left: "30%", // Squeeze in
+                  originY: 0,
+                }}
+                animate={
+                  scatter
+                    ? { rotate: 15, x: -5 } // Dangling
+                    : { rotate: 80, x: 10, y: -10 } // Tucked
+                }
+              />
+              {/* Right Leg */}
+              <motion.div
+                className={`${styles.limb} ${styles.leg} ${styles.legRight}`}
+                style={{
+                  height: 35,
+                  bottom: -15,
+                  right: "30%", // Squeeze in
+                  originY: 0,
+                }}
+                animate={
+                  scatter
+                    ? { rotate: -15, x: 5 } // Dangling
+                    : { rotate: -80, x: -10, y: -10 } // Tucked
+                }
+              />
+
+              {/* Tape */}
+              <div className={styles.tape} />
+
+              {/* Floating wrapper (note floats, text does not) */}
+              <motion.div
+                className={styles.noteFloatWrapper}
+                animate={scatter ? { y: [0, -12, 0] } : { y: 0 }}
+                transition={{
+                  duration: 3 + index * 0.6,
+                  repeat: scatter ? Infinity : 0,
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Content */}
+              <div className={styles.noteContent}>
+                <div className={styles.noteTitle}>{note.title}</div>
+                <div className={styles.noteText}>{note.text}</div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

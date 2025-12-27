@@ -4,6 +4,7 @@ import { Section1 } from "./Section1";
 import { Section2 } from "./Section2";
 import { Section3 } from "./Section3";
 import { Section4 } from "./Section4";
+import { Section5 } from "./Section5";
 import { Cloud } from "./Cloud";
 import { theme } from "../theme";
 
@@ -59,15 +60,15 @@ export const HorizontalScroll = () => {
   const x = useTransform(
     smoothProgress,
     [0, 1],
-    // Desktop: 4 * 100vw = 400vw total. Viewport 100vw. Move -300vw (-75%)
-    // Mobile: 4 * 150vw = 600vw total. Viewport 100vw. Move -500vw (-83.33%)
-    ["0%", isMobile ? `-${(500 / 600) * 100}%` : "-75%"]
+    // Desktop: 5 * 100vw = 500vw total. Viewport 100vw. Move -400vw (-80%)
+    // Mobile: 5 * 150vw = 750vw total. Viewport 100vw. Move -650vw (-86.66%)
+    ["0%", isMobile ? `-${(650 / 750) * 100}%` : "-80%"]
   );
 
   return (
-    <div ref={targetRef} style={{ height: "400vh", position: "relative" }}>
+    <div ref={targetRef} style={{ height: "500vh", position: "relative" }}>
       {/* Ghost Snap Targets */}
-      {[0, 1, 2, 3].map((index) => (
+      {[0, 1, 2, 3, 4].map((index) => (
         <div
           key={index}
           style={{
@@ -105,6 +106,7 @@ export const HorizontalScroll = () => {
           <Section1 />
           <Section2 />
           <Section3 />
+          <Section5 />
           <Section4 />
         </motion.div>
       </div>

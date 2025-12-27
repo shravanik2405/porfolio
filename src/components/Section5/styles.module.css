@@ -1,0 +1,30 @@
+.section {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.title {
+  font-size: 5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+  .section {
+    width: 150vw;
+  }
+}

@@ -1,4 +1,4 @@
-import cloudPng from "../assets/cloud.png";
+import CloudSvg from "../assets/cloud.svg";
 
 interface CloudProps {
   top: string;
@@ -23,7 +23,7 @@ const CloudItem = ({
 }: CloudProps) => {
   return (
     <div
-      className="cloud-item"
+      className='cloud-item'
       style={
         {
           position: "absolute",
@@ -38,9 +38,8 @@ const CloudItem = ({
           "--width-desktop": width,
           "--width-mobile": mobileWidth,
         } as React.CSSProperties
-      }
-    >
-      <img src={cloudPng} alt="Cloud" className="cloud-img" />
+      }>
+      <img src={CloudSvg} alt='Cloud' className='cloud-img' />
     </div>
   );
 };
@@ -73,54 +72,54 @@ export const Cloud = ({ isPaused }: { isPaused: boolean }) => {
 
       <CloudItem
         isPaused={isPaused}
-        top="5%"
-        width="200px"
-        mobileWidth="100px"
+        top='5%'
+        width='200px'
+        mobileWidth='100px'
         duration={120}
         zIndex={5}
         delay={0}
       />
       <CloudItem
         isPaused={isPaused}
-        top="15%"
-        width="160px"
-        mobileWidth="80px"
+        top='15%'
+        width='160px'
+        mobileWidth='80px'
         duration={120}
         zIndex={4}
         delay={-30}
       />
       <CloudItem
         isPaused={isPaused}
-        top="8%"
-        width="180px"
-        mobileWidth="90px"
+        top='8%'
+        width='180px'
+        mobileWidth='90px'
         duration={120}
         zIndex={3}
         delay={-60}
       />
       <CloudItem
         isPaused={isPaused}
-        top="3%"
-        width="150px"
-        mobileWidth="75px"
+        top='3%'
+        width='150px'
+        mobileWidth='75px'
         duration={120}
         zIndex={5}
         delay={-90}
       />
       <CloudItem
         isPaused={isPaused}
-        top="12%"
-        width="140px"
-        mobileWidth="70px"
+        top='12%'
+        width='140px'
+        mobileWidth='70px'
         duration={120}
         zIndex={4}
         delay={-15}
       />
       <CloudItem
         isPaused={isPaused}
-        top="6%"
-        width="170px"
-        mobileWidth="85px"
+        top='6%'
+        width='170px'
+        mobileWidth='85px'
         duration={120}
         zIndex={3}
         delay={-75}

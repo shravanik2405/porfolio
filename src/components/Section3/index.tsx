@@ -15,6 +15,8 @@ export const Section3 = () => {
   const isAnimating = useRef(false);
   const switchContainerRef = useRef<HTMLDivElement>(null);
 
+  const hasAutoTriggered = useRef(false);
+
   const handleAnimation = () => {
     if (isAnimating.current) return;
     isAnimating.current = true;
@@ -51,8 +53,14 @@ export const Section3 = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !isSwitched && !isAnimating.current) {
+          if (
+            entry.isIntersecting &&
+            !isSwitched &&
+            !isAnimating.current &&
+            !hasAutoTriggered.current
+          ) {
             handleAnimation();
+            hasAutoTriggered.current = true;
           }
         });
       },

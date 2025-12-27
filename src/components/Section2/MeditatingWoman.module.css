@@ -54,7 +54,7 @@
 
 .planet {
   /* Define the path for all planets */
-  offset-path: path("M 20 280 A 248 248 0 0 1 516 280");
+  offset-path: path("M -52 280 A 320 320 0 0 1 588 280");
   offset-rotate: 0deg; /* Keep planets upright or auto to follow path tangent */
   /* transform-box: fill-box; */
   /* transform-origin: center; */

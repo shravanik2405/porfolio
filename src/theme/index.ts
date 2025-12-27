@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
     primary: "#ffc785",
-    secondary: "#292926", // Dark Grey / Black (Now using secondaryDark everywhere)
+    secondary: "#292926",
     textLight: "#ffffff",
     textDark: "#2D2D2D",
     shadow: "rgba(0, 0, 0, 0.7)",

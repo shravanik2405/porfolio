@@ -212,3 +212,14 @@
     width: 70px;
   }
 }
+@media (max-width: 425px) {
+  .section {
+    width: 175vw;
+  }
+  .testContainer {
+    left: 85vw; /* Increased spacing */
+  }
+  .lampContainer {
+    left: 115vw; /* Centered on new wall position (85vw + 30vw) */
+  }
+}

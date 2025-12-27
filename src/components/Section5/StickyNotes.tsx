@@ -90,7 +90,7 @@ export default function StickyNotes() {
   // But for now, we'll just guard or use the values.
 
   const containerSize = Math.min(width || 800, height || 600, 560);
-  const noteSize = isMobile ? containerSize * 0.32 : 176;
+  const noteSize = isMobile ? containerSize * 0.42 : 176;
   const gap = noteSize * 1.15;
 
   const [scatter, setScatter] = useState(false);
@@ -110,20 +110,32 @@ export default function StickyNotes() {
             : undefined
         }
         onMouseLeave={!isMobile ? () => setScatter(false) : undefined}
-        onClick={
-          isMobile
-            ? () => {
-                setLayoutIndex((i) => (i + 1) % scatterLayouts.length);
-                setScatter((s) => !s);
-              }
-            : undefined
-        }>
+        onClick={isMobile ? () => setScatter((s) => !s) : undefined}>
         {notes.map((note, index) => {
-          const { x, y } = scatterLayouts[layoutIndex](
-            index,
-            notes.length,
-            gap
-          );
+          let x, y;
+
+          if (isMobile) {
+            // 2x2 Grid logic for mobile
+            const col = index % 2;
+            const row = Math.floor(index / 2);
+
+            // Center offsets and handle 5th item
+            if (index === 4) {
+              x = 0;
+            } else {
+              x = (col === 0 ? -0.5 : 0.5) * (noteSize * 1.1);
+            }
+            // Rows centered around middle
+            y = (row - 1) * (noteSize * 1.1);
+          } else {
+            const layout = scatterLayouts[layoutIndex](
+              index,
+              notes.length,
+              gap
+            );
+            x = layout.x;
+            y = layout.y;
+          }
 
           // Stack in the center initially, but looser
           const center = containerSize / 2 - noteSize / 2;

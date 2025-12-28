@@ -11,11 +11,11 @@
 
 .switchContainer {
   position: absolute;
-  left: 10%;
+  left: 1%;
   bottom: 35%;
   width: 20%;
-  max-width: 300px;
-  min-width: 150px;
+  /* max-width: 300px; */
+  /* min-width: 150px; */
   display: flex;
   justify-content: center;
   align-items: flex-end; /* Align image bottom to the container bottom */

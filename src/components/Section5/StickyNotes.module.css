@@ -43,6 +43,15 @@
   margin-bottom: 0.25rem;
 }
 
+.iconImage {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-right: 6px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .noteText {
   font-size: 0.875rem; /* text-sm */
   line-height: 1.375; /* leading-snug */

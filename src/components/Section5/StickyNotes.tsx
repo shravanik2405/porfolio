@@ -1,45 +1,70 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./StickyNotes.module.css";
+import ChaiCup from "../../assets/chai-cup.svg";
+import MusicSvg from "../../assets/music.svg";
+import BookSvg from "../../assets/book.svg";
 
-// -------------------- DATA --------------------
 const notes = [
   {
     id: 1,
-    title: "UI Design",
-    text: "I design playful, colorful interfaces that feel alive 🎨",
+    title: "",
+    icon: MusicSvg,
+    text: "Lumineers for the road, hozier for the night and sufjan for Mondays",
     color: "#FF5F6D",
     rotate: -6,
   },
   {
     id: 2,
-    title: "Micro‑interactions",
-    text: "Tiny animations, big personality ✨",
+    title: "Other Humans?",
+    icon: "",
+    text: "Sometimes, in small doses, preferably with snacks and an exit plan.",
     color: "#FFC371",
     rotate: 5,
   },
   {
     id: 3,
-    title: "React",
-    text: "My comfort zone for building delightful products ⚛️",
+    title: "",
+    icon: BookSvg,
+    text: "Preferrably fiction, I like stories that ruin me politely — The God of Small Things does it best",
     color: "#6EE7B7",
     rotate: -3,
   },
   {
     id: 4,
-    title: "Motion",
-    text: "Animation is not decoration — it’s communication 💃",
+    title: "",
+    icon: ChaiCup,
+    text: "Chai for emotional hydration",
     color: "#60A5FA",
     rotate: 7,
   },
   {
+    id: 4,
+    title: "",
+    icon: ChaiCup,
+    text: "Chai for emotional hydration",
+    color: "#60A5FA",
+    rotate: 7,
+  },
+  //   {
+  //     id: 4,
+  //     title: "",
+  //     icon: ChaiCup,
+  //     text: "Chai for emotional hydration",
+  //     color: "#60A5FA",
+  //     rotate: 7,
+  //   },
+  {
     id: 5,
     title: "UX",
-    text: "Clean UX always wins 🧠",
+    icon: "🧠",
+    text: "Clean UX always wins",
     color: "#C084FC",
     rotate: -4,
   },
 ];
+
+// ... (existing code) ...
 
 // -------------------- HOOK --------------------
 function useWindowSize() {
@@ -249,7 +274,16 @@ export default function StickyNotes() {
 
               {/* Content */}
               <div className={styles.noteContent}>
-                <div className={styles.noteTitle}>{note.title}</div>
+                <div className={styles.noteTitle}>
+                  {note.icon &&
+                  (note.icon.startsWith("/") ||
+                    note.icon.startsWith("http")) ? (
+                    <img src={note.icon} alt='' className={styles.iconImage} />
+                  ) : (
+                    <span style={{ marginRight: "6px" }}>{note.icon}</span>
+                  )}
+                  {note.title}
+                </div>
                 <div className={styles.noteText}>{note.text}</div>
               </div>
             </motion.div>

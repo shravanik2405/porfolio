@@ -5,6 +5,7 @@ export const theme = {
     textLight: "#ffffff",
     textDark: "#2D2D2D",
     shadow: "rgba(0, 0, 0, 0.7)",
+    orange: "#FF693D",
   },
   fonts: {
     primary: '"Mochiy Pop P One", sans-serif',

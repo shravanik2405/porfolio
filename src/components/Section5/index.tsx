@@ -1,6 +1,6 @@
 import { theme } from "../../theme";
 import styles from "./styles.module.css";
-import StickyNotes from "./StickyNotes";
+import PianoLikes from "./PianoLikes";
 
 export const Section5 = () => {
   return (
@@ -12,7 +12,7 @@ export const Section5 = () => {
           theme.colors.secondary
         ),
       }}>
-      <StickyNotes />
+      <PianoLikes />
     </section>
   );
 };

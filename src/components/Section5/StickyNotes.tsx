@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import styles from "./StickyNotes.module.css";
 import ChaiCup from "../../assets/chai-cup.svg";
 import MusicSvg from "../../assets/music.svg";
 import BookSvg from "../../assets/book.svg";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 const notes = [
   {
@@ -65,21 +66,6 @@ const notes = [
 ];
 
 // ... (existing code) ...
-
-// -------------------- HOOK --------------------
-function useWindowSize() {
-  const [size, setSize] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    const update = () =>
-      setSize({ width: window.innerWidth, height: window.innerHeight });
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-
-  return size;
-}
 
 // -------------------- SCATTER LAYOUTS --------------------
 const scatterLayouts: ((

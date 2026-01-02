@@ -1,6 +1,8 @@
 import { theme } from "../../theme";
 import styles from "./styles.module.css";
 import PianoLikes from "./PianoLikes";
+import PianoFrameVase from "../../assets/piano-frame-vase.svg";
+import Rock from "../../assets/rock.svg";
 
 export const Section5 = () => {
   return (
@@ -12,7 +14,15 @@ export const Section5 = () => {
           theme.colors.secondary
         ),
       }}>
-      <PianoLikes />
+      <div className={styles.contentContainer}>
+        <img
+          src={PianoFrameVase}
+          alt='Vase with flowers'
+          className={styles.vase}
+        />
+        <PianoLikes />
+        <img src={Rock} alt='Rock' className={styles.rock} />
+      </div>
     </section>
   );
 };

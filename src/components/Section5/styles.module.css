@@ -9,12 +9,43 @@
   overflow: visible;
 }
 
-.container {
+.contentContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   z-index: 10;
+  gap: 40px;
+}
+
+.vase {
+  width: auto;
+  height: 382px; /* Matches SVG height */
+  flex-shrink: 0;
+}
+
+.rock {
+  width: 180px;
+  height: auto;
+  flex-shrink: 0;
+  margin-left: -40px; /* Overlap with piano from the right */
+}
+
+@media (max-width: 980px) {
+  .contentContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .vase {
+    height: 200px; /* Smaller on mobile */
+  }
+
+  .rock {
+    height: auto;
+    width: 120px;
+    margin-left: 0;
+    order: 3; /* Ensure it stays at bottom or correct order if flex-col */
+  }
 }
 
 .title {

@@ -5,6 +5,7 @@ import frame1 from "../../assets/frame1.png";
 import frame2 from "../../assets/frame2.png";
 import birds from "../../assets/birds.png";
 import { theme } from "../../theme";
+import { SquigglyBackground } from "../Common/SquigglyBackground";
 
 const images = [frame1, frame2];
 
@@ -23,14 +24,11 @@ export const Section1 = () => {
   }, [currentImageIndex]);
 
   return (
-    <section
-      className={styles.section}
-      style={{
-        background: theme.gradients.splitBackground(
-          theme.colors.primary,
-          theme.colors.secondary
-        ),
-      }}>
+    <section className={styles.section}>
+      <SquigglyBackground
+        topColor={theme.colors.primary}
+        bottomColor={theme.colors.secondary}
+      />
       <img src={birds} alt='Birds' className={styles.birdsImage} />
 
       <div className={styles.container}>

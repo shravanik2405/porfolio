@@ -97,10 +97,7 @@ export const HorizontalScroll = () => {
             display: "flex",
             position: "relative",
             // Apply the same gradient background to the container to mask any sub-pixel gaps between sections
-            background: theme.gradients.splitBackground(
-              theme.colors.primary,
-              theme.colors.secondary
-            ),
+            background: theme.colors.primary,
           }}>
           <Cloud isPaused={isScrolling} />
           <Section1 />

@@ -7,6 +7,7 @@ import switch2 from "../../assets/switch2.svg";
 import switch3 from "../../assets/switch3.svg";
 import wall from "../../assets/wall.svg";
 import wallDark from "../../assets/wall-dark.svg";
+import { SquigglyBackground } from "../Common/SquigglyBackground";
 
 export const Section3 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -79,14 +80,11 @@ export const Section3 = () => {
   }, [isSwitched]); // Re-run when state changes to ensure correct logic
 
   return (
-    <section
-      className={styles.section}
-      style={{
-        background: theme.gradients.splitBackground(
-          theme.colors.primary,
-          theme.colors.secondary
-        ),
-      }}>
+    <section className={styles.section}>
+      <SquigglyBackground
+        topColor={theme.colors.primary}
+        bottomColor={theme.colors.secondary}
+      />
       <div className={styles.switchContainer} ref={switchContainerRef}>
         <img
           src={switchImages[currentImageIndex]}

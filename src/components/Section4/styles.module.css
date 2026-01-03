@@ -7,6 +7,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  margin-right: -1px;
 }
 
 .treeContainer {
@@ -18,7 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  z-index: 20;
+  z-index: 90;
   margin-bottom: -10px; /* Slight adjustment to match other elements' grounding */
 }
 
@@ -31,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  z-index: 21; /* Grass in front of tree */
+  z-index: 100; /* Grass in front of tree */
   margin-bottom: -10px; /* Align with tree base */
   pointer-events: none; /* Let clicks pass through if needed */
 }

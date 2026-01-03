@@ -2,24 +2,21 @@ import { theme } from "../../theme";
 import styles from "./styles.module.css";
 import AvocadoTree from "./AvocadoTree";
 import { GrassStrip } from "./GrassStrip";
+import { SquigglyBackground } from "../Common/SquigglyBackground";
 
 export const Section4 = () => {
   return (
-    <section
-      className={styles.section}
-      style={{
-        background: theme.gradients.splitBackground(
-          theme.colors.primary,
-          theme.colors.secondary,
-        ),
-      }}
-    >
+    <section className={styles.section}>
+      <SquigglyBackground
+        topColor={theme.colors.primary}
+        bottomColor={theme.colors.secondary}
+      />
       <div className={styles.treeContainer}>
         <AvocadoTree />
       </div>
       <div className={styles.grassContainer}>
         <GrassStrip
-          color="#292926"
+          color='#292926'
           width={800}
           bladeCount={320}
           height={80}

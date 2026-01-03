@@ -3,17 +3,15 @@ import styles from "./styles.module.css";
 import PianoLikes from "./PianoLikes";
 import PianoFrameVase from "../../assets/piano-frame-vase.svg";
 import Rock from "../../assets/rock.svg";
+import { SquigglyBackground } from "../Common/SquigglyBackground";
 
 export const Section5 = () => {
   return (
-    <section
-      className={styles.section}
-      style={{
-        background: theme.gradients.splitBackground(
-          theme.colors.primary,
-          theme.colors.secondary
-        ),
-      }}>
+    <section className={styles.section}>
+      <SquigglyBackground
+        topColor={theme.colors.primary}
+        bottomColor={theme.colors.secondary}
+      />
       <div className={styles.contentContainer}>
         <img
           src={PianoFrameVase}

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import styles from "./styles.module.css";
 import frame1 from "../../assets/frame1.png";
 import frame2 from "../../assets/frame2.png";
-import birds from "../../assets/birds.png";
+import birds from "../../assets/birds.svg";
 import { theme } from "../../theme";
 import { SquigglyBackground } from "../Common/SquigglyBackground";
 
@@ -13,7 +13,7 @@ export const Section1 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    // Frame 0 (Resting): 700ms
+    // Frame 0 (Resting): 1000ms
     // Frame 1 (Petting): 200ms
     const durations = [1000, 200];
     const timeout = setTimeout(() => {
@@ -33,6 +33,14 @@ export const Section1 = () => {
 
       <div className={styles.container}>
         <div className={styles.textContainer}>
+          <motion.h2
+            className={styles.introText}
+            style={{ color: theme.colors.secondary }}
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}>
+            Hi I am,
+          </motion.h2>
           <motion.h1
             className={styles.firstName}
             style={{ color: theme.colors.secondary }}

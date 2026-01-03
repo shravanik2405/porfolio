@@ -21,11 +21,20 @@
 .textContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   z-index: 10;
   line-height: 0.8;
   max-width: 60%;
-  transform: translateY(10vh);
+  transform: translateY(2vh);
+}
+
+.introText {
+  font-size: 2vw;
+  margin: 0;
+  margin-bottom: 2vw;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1.2;
 }
 
 .firstName {
@@ -48,7 +57,7 @@
 
 .imageWrapper {
   position: absolute;
-  right: 10%;
+  right: 2%;
   bottom: 40%;
   transform: translateY(18%);
   z-index: 20;
@@ -81,7 +90,7 @@
 @media (max-width: 1440px) {
   .imageWrapper {
     width: 15vw;
-    right: 10%;
+    right: 2%;
   }
   .planet {
     animation-name: arc-slide-small;
@@ -90,7 +99,7 @@
 
 @media (min-width: 1440px) {
   .imageWrapper {
-    right: 20%;
+    right: 12%;
   }
 }
 
@@ -109,7 +118,7 @@
   }
 
   .container {
-    padding-left: 5vw;
+    padding-left: 1vw;
     padding-right: 5vw;
     width: 100%;
     display: flex;
@@ -141,13 +150,18 @@
     margin-bottom: 0.5rem;
   }
 
+  .introText {
+    font-size: 4vw;
+    margin-bottom: 1rem;
+  }
+
   .lastName {
     margin-top: 0.5rem;
   }
 
   .imageWrapper {
     position: absolute;
-    right: 5vw;
+    right: 2vw;
     bottom: 30%;
     width: 45vw; /* 30% of 150vw = 45vw for proportional look */
     max-width: 250px;
@@ -182,7 +196,7 @@
 
   .imageWrapper {
     width: 50vw; /* Adjust image size */
-    right: 5vw;
+    right: 2vw;
     bottom: 30%;
   }
 }

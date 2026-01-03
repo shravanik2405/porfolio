@@ -35,7 +35,7 @@ export const SquigglyBackground: React.FC<SquigglyBackgroundProps> = ({
           preserveAspectRatio='none'
           style={{
             position: "absolute",
-            bottom: "100%",
+            bottom: "99%",
             left: 0,
             width: "100%",
             height: "3vw", // Responsive height

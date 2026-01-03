@@ -1,5 +1,5 @@
 import styles from "./MeditatingWoman.module.css";
-import firda from "../../assets/firda.svg";
+import { Firda } from "./Firda";
 
 const MeditatingWoman = () => {
   return (
@@ -304,7 +304,7 @@ const MeditatingWoman = () => {
           </defs>
 
           {/* --- WOMAN SVG CONTENT --- */}
-          <image href={firda} x='136' y='25' width='264' height='360' />
+          <Firda x={136} y={25} width={264} height={360} />
         </svg>
       </div>
     </div>

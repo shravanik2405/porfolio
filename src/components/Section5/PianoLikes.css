@@ -37,11 +37,9 @@
 
 .pl-note-card {
   max-width: 280px;
-  background: #fff;
-  border: 1px solid rgba(20, 20, 20, 0.1);
+  background: #292926;
   border-radius: 18px;
   padding: 12px 14px;
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
 }
 
 .pl-note-row {
@@ -57,8 +55,7 @@
   border-radius: 999px;
   align-items: center;
   justify-content: center;
-  background: rgba(20, 20, 20, 0.06);
-  color: #111;
+  color: #ffc785;
   font-weight: 700;
 }
 
@@ -66,7 +63,7 @@
   font-size: 13px;
   font-weight: 600;
   line-height: 1.25;
-  color: var(--pl-text);
+  color: #ffc785;
 }
 
 .pl-controls {

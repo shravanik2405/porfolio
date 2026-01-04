@@ -101,9 +101,13 @@ export const Section3 = () => {
             style={{ color: theme.colors.primary }}>
             <h3>About Me</h3>
             <p>
-              I am a creative developer who loves to build interactive and
-              immersive web experiences. I love to experiment with new
-              technologies and create unique designs.
+              I build React / React Native apps. I like clean UI, predictable
+              flows, and pixels that behave. I’ve shipped an app from scratch,
+              debugged the “only on production” stuff, and lived to tell the
+              tale. Personality-wise: introvert-friendly, detail-obsessed, chai
+              fueld and emotionally stable as long as the UI is. If you want
+              someone who sweats details, communicates clearly, and stays human
+              about it — hi.
             </p>
           </div>{" "}
         </div>

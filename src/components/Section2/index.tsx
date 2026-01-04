@@ -22,6 +22,7 @@ export const Section2 = () => {
 
       <div className={styles.meditatingContainer}>
         <MeditatingWoman />
+        <div className={styles.toolsText}>Tools I ship with</div>
       </div>
     </section>
   );

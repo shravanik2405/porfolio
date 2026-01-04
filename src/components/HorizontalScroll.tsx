@@ -101,8 +101,8 @@ export const HorizontalScroll = () => {
           }}>
           <Cloud isPaused={isScrolling} />
           <Section1 />
-          <Section2 />
           <Section3 />
+          <Section2 />
           <Section5 />
           <Section4 />
         </motion.div>

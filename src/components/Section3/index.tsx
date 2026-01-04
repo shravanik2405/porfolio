@@ -5,8 +5,8 @@ import { useEffect, useState, useRef } from "react";
 import switch1 from "../../assets/switch1.svg";
 import switch2 from "../../assets/switch2.svg";
 import switch3 from "../../assets/switch3.svg";
-import wall from "../../assets/wall.svg";
-import wallDark from "../../assets/wall-dark.svg";
+import aboutBlob from "../../assets/about-blob.svg";
+import Chair from "../../assets/chair.svg";
 import { SquigglyBackground } from "../Common/SquigglyBackground";
 
 export const Section3 = () => {
@@ -95,29 +95,23 @@ export const Section3 = () => {
       </div>
       <div className={styles.testContainer}>
         <div className={styles.wallContainer}>
-          {isSwitched ? (
-            <img
-              src={wall}
-              alt='Wall Decoration'
-              className={styles.wallImage}
-            />
-          ) : (
-            <img
-              src={wallDark}
-              alt='Wall Decoration'
-              className={styles.wallImage}
-            />
-          )}
+          <img src={aboutBlob} alt='About Blob' className={styles.wallImage} />
+          <div
+            className={styles.blobText}
+            style={{ color: theme.colors.primary }}>
+            <h3>About Me</h3>
+            <p>
+              I am a creative developer who loves to build interactive and
+              immersive web experiences. I love to experiment with new
+              technologies and create unique designs.
+            </p>
+          </div>{" "}
         </div>
       </div>
-
       <div className={styles.lampContainer}>
         <div
           className={styles.lightBeam}
           style={{ opacity: isSwitched ? 1 : 0 }}></div>
-        <div
-          className={styles.darkBeam}
-          style={{ opacity: isSwitched ? 0 : 1 }}></div>
         <div
           className={styles.glow}
           style={{ opacity: isSwitched ? 0.6 : 0 }}></div>
@@ -133,15 +127,18 @@ export const Section3 = () => {
             />
 
             <path
-              d='M 46 15.485 V 1 c 0 -0.552 -0.448 -1 -1 -1 s -1 0.448 -1 1 v 14.485 h -6.586 v 9.039 c 2.427 -0.614 4.968 -0.943 7.586 -0.943 s 5.159 0.329 7.586 0.943 v -9.039 H 46 z'
-              style={{ fill: "#596C76" }}
+              d='M 46 15.485 V -80 c 0 -0.552 -0.448 -1 -1 -1 s -1 0.448 -1 1 v 95.485 h -6.586 v 9.039 c 2.427 -0.614 4.968 -0.943 7.586 -0.943 s 5.159 0.329 7.586 0.943 v -9.039 H 46 z'
+              style={{ fill: "#292926" }}
             />
             <path
-              d='M 75.849 60.57 H 14.151 v -8.14 c 0 -17.037 13.811 -30.849 30.849 -30.849 h 0 c 17.037 0 30.849 13.811 30.849 30.849 V 60.57 z'
-              style={{ fill: "#8C9FAC" }}
+              d='M 14.151 60.57 V 21.58 H 75.849 V 60.57 Z'
+              style={{ fill: "#292926" }}
             />
           </g>
         </svg>
+      </div>
+      <div className={styles.chairContainer}>
+        <img src={Chair} alt='Chair' className={styles.chairImage} />
       </div>
     </section>
   );

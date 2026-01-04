@@ -14,7 +14,7 @@
   position: absolute;
   left: 1%;
   bottom: 35%;
-  width: 20%;
+  width: 25%;
   /* max-width: 300px; */
   /* min-width: 150px; */
   display: flex;
@@ -33,7 +33,7 @@
 
 @media (max-width: 767px) {
   .switchContainer {
-    width: 40%; /* Increase size on mobile */
+    width: 45%; /* Increase size on mobile */
     left: 10%;
     bottom: 40%; /* Adjust alignment if needed, matching Section 1 mobile tweak */
   }
@@ -45,13 +45,36 @@
   }
 
   .switchContainer {
-    width: 50vw;
+    width: 60vw;
     left: 5vw;
   }
 }
 
 .wallContainer {
+  position: relative;
   width: 100%;
+}
+
+.blobText {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  text-align: center;
+  z-index: 10;
+}
+
+.blobText h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.blobText p {
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 .wallImage {
@@ -62,10 +85,11 @@
 
 .lampContainer {
   position: absolute;
-  top: -20px; /* Hanging slightly off-screen top */
-  left: 42.5%; /* Centered relative to wall (25% left + 17.5% half-width) */
-  transform: translateX(-50%);
-  width: 100px;
+  top: 65%;
+  left: 70%;
+  transform: translate(-50%, -50%) rotate(115deg);
+  transform-origin: top center;
+  width: 150px;
   height: auto;
   z-index: 300;
   display: flex;
@@ -155,7 +179,7 @@
 
 .testContainer {
   position: absolute;
-  left: 25%;
+  left: 30%;
   bottom: 40%;
   width: 35%;
   max-width: 600px;
@@ -180,13 +204,28 @@
   -webkit-mask-position: center; */
 }
 
+.chairContainer {
+  position: absolute;
+  bottom: 40%;
+  right: 10%;
+  width: 15vw;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.chairImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 @media (max-width: 1024px) {
   .testContainer {
     width: 40%;
     left: 35%;
   }
   .lampContainer {
-    left: 55%; /* Centered relative to wall (35% left + 20% half-width) */
+    left: 80%; /* Right of blob (starts 35, width 40 -> ends 75) */
   }
 }
 
@@ -197,8 +236,14 @@
     bottom: 40%;
   }
   .lampContainer {
-    left: 55%; /* Centered relative to wall (30% left + 25% half-width) */
+    left: 85%; /* Right of blob (starts 30, width 50 -> ends 80) */
     width: 80px;
+  }
+  .blobText h3 {
+    font-size: 1.2rem;
+  }
+  .blobText p {
+    font-size: 0.9rem;
   }
 }
 
@@ -209,8 +254,15 @@
     bottom: 40%;
   }
   .lampContainer {
-    left: 100vw; /* Centered on wall: 70vw + (60vw / 2) */
+    left: 135vw; /* Right of blob (starts 70vw, width 60vw -> ends 130vw) */
     width: 70px;
+  }
+  .blobText h3 {
+    font-size: 1rem;
+  }
+  .blobText p {
+    font-size: 0.8rem;
+    line-height: 1.2;
   }
 }
 @media (max-width: 425px) {
@@ -221,6 +273,6 @@
     left: 85vw; /* Increased spacing */
   }
   .lampContainer {
-    left: 115vw; /* Centered on new wall position (85vw + 30vw) */
+    left: 125vw; /* Right of blob (starts 85vw, width 30vw -> ends 115vw) */
   }
 }

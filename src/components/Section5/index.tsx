@@ -17,11 +17,6 @@ export const Section5 = () => {
       />
       <div className={styles.contentContainer}>
         <img
-          src={PianoFrameVase}
-          alt='Vase with flowers'
-          className={styles.vase}
-        />
-        <img
           src={PlantsStand}
           alt='Plants Stand'
           className={styles.plantsStand}

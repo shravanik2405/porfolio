@@ -6,7 +6,7 @@ import switch1 from "../../assets/switch1.svg";
 import switch2 from "../../assets/switch2.svg";
 import switch3 from "../../assets/switch3.svg";
 import aboutBlob from "../../assets/about-blob.svg";
-import Chair from "../../assets/chair.svg";
+import PianoFrameVase from "../../assets/piano-frame-vase.svg";
 import { SquigglyBackground } from "../Common/SquigglyBackground";
 
 export const Section3 = () => {
@@ -142,7 +142,11 @@ export const Section3 = () => {
         </svg>
       </div>
       <div className={styles.chairContainer}>
-        <img src={Chair} alt='Chair' className={styles.chairImage} />
+        <img
+          src={PianoFrameVase}
+          alt='Vase with flowers'
+          className={styles.vase}
+        />
       </div>
     </section>
   );

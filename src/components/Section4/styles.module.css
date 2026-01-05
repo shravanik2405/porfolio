@@ -25,16 +25,36 @@
 
 .grassContainer {
   position: absolute;
-  bottom: 40%;
-  right: -5%;
-  width: 60%;
-  max-width: 800px;
+  bottom: 42%;
+  left: 0;
+  width: 100%;
+  max-width: none;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   z-index: 100; /* Grass in front of tree */
   margin-bottom: -10px; /* Align with tree base */
   pointer-events: none; /* Let clicks pass through if needed */
+}
+
+.textContainer {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 50%;
+  z-index: 80;
+  color: #292926;
+  font-family: "Mochiy Pop P One", sans-serif;
+  font-size: 2rem;
+  line-height: 1.4;
+}
+
+.contactWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 @media (max-width: 767px) {
@@ -55,12 +75,19 @@
   }
 
   .grassContainer {
-    right: 5vw;
+    left: 0;
     bottom: 40%;
-    width: 80vw;
-    max-width: 400px;
+    width: 100%;
+    max-width: none;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+  }
+
+  .textContainer {
+    width: 60vw;
+    font-size: 1rem;
+    top: 10%;
+    left: 5vw;
   }
 }

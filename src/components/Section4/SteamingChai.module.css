@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+  filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-50px) scale(1.3);
+    opacity: 0;
+  }
+}
+
+.steamWisp {
+  transform-origin: center bottom;
+  /* All wisps animate together with no delay */
+  animation: fadeUp 4s ease-out infinite;
+}

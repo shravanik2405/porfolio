@@ -277,3 +277,9 @@
     left: 125vw; /* Right of blob (starts 85vw, width 30vw -> ends 115vw) */
   }
 }
+
+.vase {
+  width: 80%;
+  height: auto;
+  display: block;
+}

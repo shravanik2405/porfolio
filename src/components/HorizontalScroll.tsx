@@ -18,9 +18,12 @@ export const HorizontalScroll = () => {
   const scrollTimeout = useRef<number | undefined>(undefined);
   const [isMobile, setIsMobile] = useState(false);
 
+  const [isSmallDevice, setIsSmallDevice] = useState(false);
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+      setIsSmallDevice(window.matchMedia("(max-width: 425px)").matches);
     };
 
     checkMobile();
@@ -77,7 +80,7 @@ export const HorizontalScroll = () => {
             left: 0,
             width: "100%",
             height: "100vh",
-            scrollSnapAlign: "start",
+            scrollSnapAlign: isSmallDevice ? "none" : "start",
             pointerEvents: "none",
           }}
         />

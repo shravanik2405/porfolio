@@ -88,118 +88,160 @@
   pointer-events: none; /* Let clicks pass through */
 }
 
+/* Large Screens (2K/4K) */
+@media (min-width: 2560px) {
+  .introText {
+    font-size: 1.5rem;
+  }
+  .firstName,
+  .lastName {
+    font-size: 10rem;
+  }
+  .imageWrapper {
+    width: 25vw;
+    max-width: 600px;
+    right: 15%;
+  }
+}
+
+/* Laptop L (1440px) */
 @media (max-width: 1440px) {
   .imageWrapper {
-    width: 15vw;
-    right: 2%;
-  }
-  .planet {
-    animation-name: arc-slide-small;
-  }
-}
-
-@media (min-width: 1440px) {
-  .imageWrapper {
-    right: 12%;
-  }
-}
-
-/* Treat tablets like desktop; tighten layout only on phones */
-@media (max-width: 767px) {
-  /* Side-by-side layout on mobile with extensive width */
-  .section {
-    width: 150vw;
-    height: 100vh;
-    min-height: 500px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    overflow: hidden;
-  }
-
-  .container {
-    padding-left: 1vw;
-    padding-right: 5vw;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    width: 25vw;
+    right: 5%;
+    bottom: 35%;
   }
 
   .textContainer {
-    width: 80vw;
-    max-width: 80vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    z-index: 20;
-    flex-shrink: 0;
-  }
-
-  .firstName,
-  .lastName {
-    font-size: 14vw;
-    letter-spacing: -1px;
-    line-height: 1.1;
-    white-space: nowrap;
-  }
-
-  .firstName {
-    margin-bottom: 0.5rem;
+    max-width: 70%;
   }
 
   .introText {
-    font-size: 4vw;
-    margin-bottom: 1rem;
-    margin-left: -90px;
+    font-size: 1.8rem;
+    margin-left: -40px;
   }
 
+  .firstName,
   .lastName {
-    margin-top: 0.5rem;
+    font-size: 8rem;
+  }
+}
+
+/* Laptop (1024px) */
+@media (max-width: 1024px) {
+  .section {
+    width: 100vw;
+  }
+
+  .container {
+    padding-left: 5%;
+  }
+
+  .textContainer {
+    max-width: 80%;
+  }
+
+  .firstName,
+  .lastName {
+    font-size: 7rem;
+    letter-spacing: -2px;
+  }
+
+  .introText {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    margin-left: -30px;
   }
 
   .imageWrapper {
-    position: absolute;
-    right: 2vw;
-    bottom: 30%;
-    width: 45vw; /* 30% of 150vw = 45vw for proportional look */
-    max-width: 250px;
-    height: auto;
+    width: 30vw;
+    right: 2%;
+    bottom: 35%;
+  }
+}
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+  .section {
+    width: 110vw; /* Reduced slightly from 120vw to keep control */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10%;
+    align-items: center;
+    width: 100%;
+  }
+
+  .textContainer {
+    width: 60%;
+    max-width: none;
+    align-items: flex-start;
+    text-align: left;
+    transform: translateY(2vh); /* Move down slightly to sit on the wave */
+    margin-bottom: 0;
+    z-index: 50;
+  }
+
+  .introText {
+    font-size: 1.1rem;
+    margin-left: -40px;
+    margin-bottom: 0.5rem;
+  }
+
+  .firstName,
+  .lastName {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .lastName {
+    padding-bottom: 0;
+    position: relative;
+    top: 60px;
+  }
+
+  .imageWrapper {
+    position: relative;
+    right: 15%;
+    bottom: auto;
+    width: 35%;
+    max-width: 300px;
+    transform: translateY(2vh); /* Sync with text to ground the woman */
+    margin-top: 0;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    transform: none;
+    z-index: 40;
   }
 }
 
-@media (max-width: 480px) {
-  /* Phone sizes */
-  .firstName,
-  .lastName {
-    font-size: 15vw;
-  }
-
-  .imageWrapper {
-    width: 60vw;
-    right: 0;
-    bottom: 25%;
-  }
-}
-
+/* Mobile L (425px) */
 @media (max-width: 425px) {
-  /* Small phone sizes */
+  .section {
+    width: 160vw; /* Increased width to allow horizontal layout without overlap */
+  }
+
+  .introText {
+    font-size: 1.2rem;
+  }
+
   .firstName,
   .lastName {
-    font-size: 13vw; /* Slightly smaller text */
+    font-size: 3rem;
+    letter-spacing: normal;
   }
 
   .imageWrapper {
-    width: 50vw; /* Adjust image size */
-    right: 2vw;
-    bottom: 30%;
+    width: 40%; /* Changed to percentage to scale with wider section and prevent overlap */
+    max-width: 250px;
   }
 }
 

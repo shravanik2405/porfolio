@@ -48,6 +48,14 @@
   margin-bottom: -5px;
 }
 
+/* Large Screens (2K/4K) */
+@media (min-width: 2560px) {
+  .toolsText {
+    font-size: 2rem;
+  }
+}
+
+/* Laptop L (1440px) */
 @media (max-width: 1440px) {
   .meditatingContainer {
     width: 35%;
@@ -60,46 +68,70 @@
   }
 }
 
-@media (max-width: 767px) {
+/* Laptop (1024px) */
+@media (max-width: 1024px) {
+  .meditatingContainer {
+    width: 40%;
+    left: 50%;
+    bottom: 35%;
+  }
+
+  .imageContainer {
+    width: 40%;
+    left: 5%;
+    bottom: 35%;
+  }
+
+  .toolsText {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
   .section {
-    width: 150vw;
+    width: 100vw;
   }
 
   .meditatingContainer {
     bottom: 40%;
     left: auto;
-    right: 15vw;
-    width: 70vw; /* Increased from 60vw since orbit is smaller */
-    max-width: 350px;
+    right: 5vw;
+    width: 50vw;
+    max-width: 400px;
   }
 
   .imageContainer {
     bottom: 40%;
-    left: 10vw;
-    width: 75vw; /* 50% of 150vw */
+    left: 5vw;
+    width: 45vw;
     max-width: 350px;
   }
 }
 
-@media (max-width: 480px) {
-  .meditatingContainer {
-    width: 58vw;
-    bottom: 40%;
-  }
-
-  .imageContainer {
-    width: 55vw;
-  }
-}
-
+/* Mobile L (425px) */
 @media (max-width: 425px) {
-  /* Create space between elements */
+  .section {
+    justify-content: center;
+  }
+
   .meditatingContainer {
-    width: 65vw; /* Increased from 45vw since orbit is smaller */
-    bottom: 39%;
+    width: 75vw;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50%;
   }
 
   .imageContainer {
-    width: 55vw; /* Scale down further to prevent overlap */
+    width: 60vw;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15%;
+  }
+
+  .toolsText {
+    font-size: 0.8rem;
+    margin-top: -1rem;
   }
 }

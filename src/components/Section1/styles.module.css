@@ -4,7 +4,6 @@
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
-  margin-right: -1px; /* Fix sub-pixel visible gap */
 }
 
 .container {

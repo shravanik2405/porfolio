@@ -7,6 +7,7 @@ import { Section4 } from "./Section4";
 import { Section5 } from "./Section5";
 import { Cloud } from "./Cloud";
 import { theme } from "../theme";
+import { SquigglyBackground } from "./Common/SquigglyBackground";
 
 export const HorizontalScroll = () => {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -78,7 +79,7 @@ export const HorizontalScroll = () => {
             position: "absolute",
             top: `${index * 100}vh`,
             left: 0,
-            width: "100%",
+            width: "101%",
             height: "100vh",
             scrollSnapAlign: isSmallDevice ? "none" : "start",
             pointerEvents: "none",
@@ -94,13 +95,20 @@ export const HorizontalScroll = () => {
           height: "100vh",
           overflow: "hidden",
         }}>
+        {/* Fixed background to eliminate vertical gaps between sections */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+          <SquigglyBackground
+            topColor={theme.colors.primary}
+            bottomColor={theme.colors.secondary}
+          />
+        </div>
+
         <motion.div
           style={{
             x,
             display: "flex",
             position: "relative",
-            // Apply the same gradient background to the container to mask any sub-pixel gaps between sections
-            background: theme.colors.primary,
+            zIndex: 1,
           }}>
           <Cloud isPaused={isScrolling} />
           <Section1 />

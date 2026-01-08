@@ -1,20 +1,13 @@
-import { theme } from "../../theme";
 import styles from "./styles.module.css";
 import PianoLikes from "./PianoLikes";
-import PianoFrameVase from "../../assets/piano-frame-vase.svg";
 import Rock from "../../assets/rock.svg";
 import HangingPot from "../../assets/hanging-pot.svg";
 import PlantsStand from "../../assets/plants-stand.svg";
 import Flamingo from "../../assets/flamingo.svg";
-import { SquigglyBackground } from "../Common/SquigglyBackground";
 
 export const Section5 = () => {
   return (
     <section className={styles.section}>
-      <SquigglyBackground
-        topColor={theme.colors.primary}
-        bottomColor={theme.colors.secondary}
-      />
       <div className={styles.contentContainer}>
         <img
           src={PlantsStand}

@@ -1,17 +1,11 @@
-import { theme } from "../../theme";
 import styles from "./styles.module.css";
 import AvocadoTree from "./AvocadoTree";
 import SteamingChai from "./SteamingChai";
 import { GrassStrip } from "./GrassStrip";
-import { SquigglyBackground } from "../Common/SquigglyBackground";
 
 export const Section4 = () => {
   return (
     <section className={styles.section}>
-      <SquigglyBackground
-        topColor={theme.colors.primary}
-        bottomColor={theme.colors.secondary}
-      />
       <div className={styles.treeContainer}>
         <AvocadoTree />
       </div>

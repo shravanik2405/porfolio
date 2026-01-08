@@ -7,7 +7,6 @@ import switch2 from "../../assets/switch2.svg";
 import switch3 from "../../assets/switch3.svg";
 import aboutBlob from "../../assets/about-blob.svg";
 import PianoFrameVase from "../../assets/piano-frame-vase.svg";
-import { SquigglyBackground } from "../Common/SquigglyBackground";
 
 export const Section3 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -81,10 +80,6 @@ export const Section3 = () => {
 
   return (
     <section className={styles.section}>
-      <SquigglyBackground
-        topColor={theme.colors.primary}
-        bottomColor={theme.colors.secondary}
-      />
       <div className={styles.switchContainer} ref={switchContainerRef}>
         <img
           src={switchImages[currentImageIndex]}

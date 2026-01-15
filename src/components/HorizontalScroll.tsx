@@ -79,7 +79,7 @@ export const HorizontalScroll = () => {
             position: "absolute",
             top: `${index * 100}vh`,
             left: 0,
-            width: "101%",
+            width: "100%",
             height: "100vh",
             scrollSnapAlign: isSmallDevice ? "none" : "start",
             pointerEvents: "none",

@@ -136,7 +136,7 @@ export const Section3 = () => {
           </g>
         </svg>
       </div>
-      <div className={styles.chairContainer}>
+      <div className={styles.vaseContainer}>
         <img
           src={PianoFrameVase}
           alt='Vase with flowers'

@@ -244,6 +244,26 @@
   }
 }
 
+/* Mobile S (320px) */
+@media (max-width: 320px) {
+  .section {
+    width: 180vw;
+  }
+
+  .introText {
+    font-size: 1rem;
+  }
+
+  .firstName,
+  .lastName {
+    font-size: 2.5rem;
+  }
+
+  .imageWrapper {
+    width: 50%;
+  }
+}
+
 /* --- ANIMATIONS START --- */
 @keyframes pulse-glow {
   0%,

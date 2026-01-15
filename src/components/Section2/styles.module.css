@@ -13,7 +13,7 @@
   position: absolute;
   bottom: 40%;
   left: 50%;
-  width: 40%;
+  width: 45%;
   z-index: 25;
   display: flex;
   flex-direction: column;
@@ -52,17 +52,24 @@
   .toolsText {
     font-size: 2rem;
   }
+
+  .meditatingContainer {
+    left: 50%;
+    width: 40%;
+    bottom: 35%;
+  }
 }
 
 /* Laptop L (1440px) */
 @media (max-width: 1440px) {
   .meditatingContainer {
-    width: 35%;
+    width: 42%;
     left: 45%;
+    bottom: 37%;
   }
 
   .imageContainer {
-    width: 45%;
+    width: 50%;
     left: 5%;
   }
 }
@@ -70,15 +77,14 @@
 /* Laptop (1024px) */
 @media (max-width: 1024px) {
   .meditatingContainer {
-    width: 40%;
+    width: 47%;
     left: 50%;
-    bottom: 35%;
+    bottom: 37%;
   }
 
   .imageContainer {
-    width: 40%;
+    width: 50%;
     left: 5%;
-    bottom: 35%;
   }
 
   .toolsText {
@@ -93,10 +99,10 @@
   }
 
   .meditatingContainer {
-    bottom: 40%;
+    bottom: 37%;
     left: auto;
     right: 5vw;
-    width: 50vw;
+    width: 65vw;
     max-width: 400px;
   }
 
@@ -115,7 +121,7 @@
   }
 
   .meditatingContainer {
-    width: 75vw;
+    width: 85vw;
     right: auto;
     left: 50%;
     transform: translateX(-50%);

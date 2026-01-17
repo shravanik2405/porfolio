@@ -133,13 +133,16 @@
 }
 
 @media (max-width: 768px) {
-  .contentContainer {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
   .section {
-    width: 100vw;
+    width: 150vw; /* Allow scrolling */
+    justify-content: flex-start;
+  }
+
+  .contentContainer {
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-end;
+    margin-left: 5vw;
   }
 
   .vase {
@@ -147,7 +150,7 @@
   }
 
   .plantsStand {
-    width: 139px;
+    width: 200px;
     height: auto;
   }
 }

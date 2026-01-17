@@ -23,8 +23,8 @@ export const HorizontalScroll = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
-      setIsSmallDevice(window.matchMedia("(max-width: 425px)").matches);
+      setIsMobile(window.matchMedia("(max-width: 1024px)").matches);
+      setIsSmallDevice(window.matchMedia("(max-width: 768px)").matches);
     };
 
     checkMobile();

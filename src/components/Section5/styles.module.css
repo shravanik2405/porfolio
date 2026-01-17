@@ -26,8 +26,8 @@
 }
 
 .plantsStand {
-  width: auto;
-  height: 350px;
+  width: 221px;
+  height: auto;
   flex-shrink: 0;
   margin-right: 0;
   transform: translateY(-50px); /* Move up visually */
@@ -48,35 +48,81 @@
   transform: translateY(-75px); /* Move up visually */
 }
 
-@media (max-width: 980px) {
-  .contentContainer {
-    flex-direction: column;
-    gap: 20px;
-  }
-
+@media (max-width: 1440px) {
   .vase {
-    height: 200px; /* Smaller on mobile */
-    margin-right: 0;
+    height: 23.6vw; /* ~340px */
   }
 
   .plantsStand {
-    height: 180px;
+    width: 13.9vw; /* ~200px */
+  }
+
+  .rock {
+    width: 11.1vw; /* ~160px */
+  }
+
+  .flamingo {
+    height: 17vw; /* Reduced from 19.4vw */
+  }
+
+  .hangingPot {
+    width: 9.4vw; /* ~135px */
+  }
+}
+
+@media (min-width: 2560px) {
+  .vase {
+    height: 19.5vw; /* ~500px */
+  }
+
+  .plantsStand {
+    width: 16.6vw;
+    height: auto;
+  }
+
+  .rock {
+    width: 9.8vw;
+  }
+
+  .flamingo {
+    height: 15.6vw;
+    transform: translateY(-8.5vw); /* Move up visually on large screens */
+  }
+
+  .hangingPot {
+    width: 7.8vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentContainer {
+    /* flex-direction: column; Removed to keep row layout */
+    gap: 10px; /* Tighter gap */
+    align-items: flex-end;
+  }
+
+  .vase {
+    height: 220px;
+    margin-right: -10px;
+  }
+
+  .plantsStand {
+    width: 200px;
+    height: auto;
     margin-right: 0;
-    transform: translateY(0); /* Reset on mobile if needed, or keep? */
-    margin-bottom: 20px; /* Use margin for stacking on mobile */
+    transform: translateY(-20px);
   }
 
   .rock {
     height: auto;
-    width: 120px;
-    margin-left: 0;
-    order: 3; /* Ensure it stays at bottom or correct order if flex-col */
+    width: 110px;
+    margin-left: -20px;
   }
 
   .flamingo {
-    height: 180px;
-    margin-left: 0;
-    order: 4;
+    height: 190px;
+    margin-left: -20px;
+    transform: translateY(-30px);
   }
 }
 
@@ -86,9 +132,51 @@
   margin-bottom: 2rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .contentContainer {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
   .section {
-    width: 150vw;
+    width: 100vw;
+  }
+
+  .vase {
+    height: 250px;
+  }
+
+  .plantsStand {
+    width: 139px;
+    height: auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .section {
+    width: 150vw; /* Allow scrolling */
+    justify-content: flex-start;
+  }
+
+  .contentContainer {
+    margin-left: 10vw;
+  }
+
+  .vase {
+    height: 200px;
+  }
+
+  .plantsStand {
+    width: 114px;
+    height: auto;
+  }
+
+  .rock {
+    width: 120px;
+  }
+
+  .flamingo {
+    height: 180px;
   }
 }
 

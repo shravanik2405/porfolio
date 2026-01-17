@@ -96,7 +96,7 @@ export default function PianoLikes({
     // Increment for next time
     nextIdxRef.current = i + 1;
 
-    const x = (Math.random() - 0.5) * 220; // spread
+    const x = (Math.random() - 0.5) * 600; // spread
     const rot = (Math.random() - 0.5) * 22;
 
     const id = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -112,7 +112,7 @@ export default function PianoLikes({
     setNotes((prev) => [...prev, note]);
 
     // cleanup after animation
-    const ttl = reduceMotion ? 800 : 1600;
+    const ttl = reduceMotion ? 800 : 3000;
     window.setTimeout(() => {
       setNotes((prev) => prev.filter((n) => n.id !== id));
     }, ttl + 120);
@@ -246,14 +246,14 @@ export default function PianoLikes({
               }}
               animate={{
                 opacity: [0, 1, 1, 0],
-                y: reduceMotion ? -10 : -400,
+                y: reduceMotion ? -10 : -600,
                 x: n.x + (reduceMotion ? 0 : (Math.random() - 0.5) * 60),
                 rotate: n.rot + (reduceMotion ? 0 : (Math.random() - 0.5) * 18),
                 scale: [0.92, 1, 1],
               }}
               exit={{ opacity: 0 }}
               transition={{
-                duration: reduceMotion ? 0.8 : 1.6,
+                duration: reduceMotion ? 0.8 : 3.0,
                 ease: "easeOut",
                 times: reduceMotion ? [0, 0.25, 0.8, 1] : [0, 0.12, 0.78, 1],
               }}

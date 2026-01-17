@@ -117,26 +117,33 @@
 /* Mobile L (425px) */
 @media (max-width: 425px) {
   .section {
-    justify-content: center;
+    width: 150vw;
+    justify-content: flex-start;
   }
 
   .meditatingContainer {
     width: 85vw;
     right: auto;
-    left: 50%;
+    left: 75%;
     transform: translateX(-50%);
-    bottom: 50%;
+    bottom: 37%;
   }
 
   .imageContainer {
-    width: 60vw;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 15%;
+    width: 75vw;
+    left: 10%;
+    bottom: 40%;
   }
 
   .toolsText {
     font-size: 0.8rem;
     margin-top: -1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .section {
+    width: 185vw;
+    justify-content: flex-start;
   }
 }

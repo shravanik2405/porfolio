@@ -38,6 +38,12 @@
   }
 }
 
+@media (max-width: 425px) {
+  .svg {
+    width: 15rem;
+  }
+}
+
 @keyframes pulse-glow {
   0%,
   100% {

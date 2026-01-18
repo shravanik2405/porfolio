@@ -157,7 +157,7 @@
 
 @media (max-width: 425px) {
   .section {
-    width: 150vw; /* Allow scrolling */
+    width: 280vw; /* Increased to fit all elements horizontally */
     justify-content: flex-start;
   }
 

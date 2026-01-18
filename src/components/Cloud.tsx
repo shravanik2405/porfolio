@@ -1,4 +1,4 @@
-import cloudPng from "../assets/cloud.png";
+import CloudSvg from "../assets/cloud.svg";
 
 interface CloudProps {
   top: string;
@@ -39,7 +39,7 @@ const CloudItem = ({
           "--width-mobile": mobileWidth,
         } as React.CSSProperties
       }>
-      <img src={cloudPng} alt='Cloud' className='cloud-img' />
+      <img src={CloudSvg} alt='Cloud' className='cloud-img' />
     </div>
   );
 };

@@ -1,3 +1,10 @@
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+  background-color: #ffcc99; /* Primary color to mask top gap */
+}
+
 :root {
   --font-primary: "Mochiy Pop P One", sans-serif;
   font-family: var(--font-primary);

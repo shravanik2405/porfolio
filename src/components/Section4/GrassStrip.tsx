@@ -110,27 +110,21 @@ export const GrassStrip: React.FC<GrassStripProps> = ({
   const bees = useMemo(() => {
     const rng = createRandom(777);
     return Array.from({ length: beeCount }).map((_, i) => {
-      // Directions
-      const startLeft = i % 2 === 0;
-
-      // Calculate safe bounds (padding of 40px)
-      const padding = 40;
-      const xStart = startLeft ? padding : width - padding;
-      const xEnd = startLeft ? width - padding : padding;
+      // Determine direction: Left->Right or Right->Left
+      const isLtr = rng() > 0.5;
+      const startX = isLtr ? -50 : width + 50;
+      const endX = isLtr ? width + 50 : -50;
 
       return {
         id: i,
         // Keep bees in upper area
         yFixed: 20 + rng() * (height * 0.3),
         size: 5 + rng() * 2,
-        // Increased duration significantly for slower flight
-        // Was: 10 + rng() * 8 (10-18s)
-        // Now: 25 + rng() * 15 (25-40s) for one-way trip
+        // Duration for one-way trip
         duration: 25 + rng() * 15,
-        delay: rng() * -20,
-
-        // Flight path: Start -> End -> Start (Ping Pong)
-        xValues: `${xStart}; ${xEnd}; ${xStart}`,
+        delay: rng() * -30, // Negative start time to premix positions
+        startX,
+        endX,
       };
     });
   }, [beeCount, width, height]);
@@ -159,15 +153,11 @@ export const GrassStrip: React.FC<GrassStripProps> = ({
               <animateTransform
                 attributeName='transform'
                 type='translate'
-                values={bee.xValues
-                  .split(";")
-                  .map((x) => `${x} ${bee.yFixed}`)
-                  .join("; ")}
-                dur={`${bee.duration * 2}s`} // Double duration for round trip
+                from={`${bee.startX} ${bee.yFixed}`}
+                to={`${bee.endX} ${bee.yFixed}`}
+                dur={`${bee.duration}s`}
                 begin={`${bee.delay}s`}
                 repeatCount='indefinite'
-                calcMode='spline'
-                keySplines='0.4 0 0.2 1; 0.4 0 0.2 1' // Smooth ease-in-out for turning
               />
 
               {/* Group 2: Vertical Bobbing */}

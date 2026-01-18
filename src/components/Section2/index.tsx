@@ -1,4 +1,3 @@
-import { theme } from "../../theme";
 import styles from "./styles.module.css";
 import MeditatingWoman from "./MeditatingWoman";
 import booksAndCat from "../../assets/books-and-cat.svg";
@@ -6,14 +5,7 @@ import booksAndCat from "../../assets/books-and-cat.svg";
 export const Section2 = () => {
   const images = [booksAndCat];
   return (
-    <section
-      className={styles.section}
-      style={{
-        background: theme.gradients.splitBackground(
-          theme.colors.primary,
-          theme.colors.secondary
-        ),
-      }}>
+    <section className={styles.section}>
       <div className={styles.imageContainer}>
         <img
           src={images[0]}
@@ -24,6 +16,7 @@ export const Section2 = () => {
 
       <div className={styles.meditatingContainer}>
         <MeditatingWoman />
+        <div className={styles.toolsText}>Tools I ship with</div>
       </div>
     </section>
   );

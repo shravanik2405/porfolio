@@ -1,28 +1,39 @@
 .section {
-  width: 100vw;
+  width: 102vw;
   height: 100vh;
   flex-shrink: 0;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   position: relative;
   overflow: hidden;
 }
 
 .meditatingContainer {
   position: absolute;
-  bottom: 33%;
-  left: 60%;
-  width: 40%;
+  bottom: 40%;
+  left: 50%;
+  width: 45%;
   z-index: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toolsText {
+  color: #ffc785; /* theme.colors.primary */
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: -1.5rem;
 }
 
 .imageContainer {
   position: absolute;
   bottom: 39%;
-  left: 10%;
+  left: 2%;
   width: 50%;
-  max-width: 600px;
+  /* max-width: 600px; */
   z-index: 20;
   display: flex;
   align-items: flex-end;
@@ -34,4 +45,105 @@
   object-fit: contain;
   display: block;
   margin-bottom: -5px;
+}
+
+/* Large Screens (2K/4K) */
+@media (min-width: 2560px) {
+  .toolsText {
+    font-size: 2rem;
+  }
+
+  .meditatingContainer {
+    left: 50%;
+    width: 40%;
+    bottom: 35%;
+  }
+}
+
+/* Laptop L (1440px) */
+@media (max-width: 1440px) {
+  .meditatingContainer {
+    width: 42%;
+    left: 45%;
+    bottom: 37%;
+  }
+
+  .imageContainer {
+    width: 50%;
+    left: 5%;
+  }
+}
+
+/* Laptop (1024px) */
+@media (max-width: 1024px) {
+  .meditatingContainer {
+    width: 47%;
+    left: 50%;
+    bottom: 37%;
+  }
+
+  .imageContainer {
+    width: 50%;
+    left: 5%;
+  }
+
+  .toolsText {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+  .section {
+    width: 100vw;
+  }
+
+  .meditatingContainer {
+    bottom: 37%;
+    left: auto;
+    right: 5vw;
+    width: 65vw;
+    max-width: 400px;
+  }
+
+  .imageContainer {
+    bottom: 40%;
+    left: 5vw;
+    width: 45vw;
+    max-width: 350px;
+  }
+}
+
+/* Mobile L (425px) */
+@media (max-width: 425px) {
+  .section {
+    width: 150vw;
+    justify-content: flex-start;
+  }
+
+  .meditatingContainer {
+    width: 85vw;
+    right: auto;
+    left: 75%;
+    transform: translateX(-50%);
+    bottom: 37%;
+  }
+
+  .imageContainer {
+    width: 75vw;
+    left: 10%;
+    bottom: 40%;
+  }
+
+  .toolsText {
+    font-size: 0.8rem;
+    margin-top: -1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .section {
+    width: 185vw;
+    justify-content: flex-start;
+  }
 }

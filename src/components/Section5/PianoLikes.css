@@ -1,0 +1,367 @@
+:root {
+  --pl-bg: rgba(255, 255, 255, 0.72);
+  --pl-border: rgba(20, 20, 20, 0.12);
+  --pl-text: #111;
+  --pl-muted: #666;
+  --pl-shadow: 0 10px 40px -20px rgba(0, 0, 0, 0.35);
+  --pl-radius: 24px;
+}
+
+.pl-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  /* Visual container removed */
+  background: transparent;
+  padding: 16px;
+  overflow: visible;
+}
+
+.pl-notes-layer {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: visible;
+  z-index: 9999;
+}
+
+.pl-note-float {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+}
+
+.pl-note-card {
+  max-width: 280px;
+  background: #292926;
+  border-radius: 18px;
+  padding: 12px 14px;
+}
+
+.pl-note-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pl-note-badge {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  color: #ffc785;
+  font-weight: 700;
+}
+
+.pl-note-text {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #ffc785;
+}
+
+.pl-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.pl-btn {
+  border-radius: 16px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  border: 1px solid rgba(20, 20, 20, 0.1);
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease,
+    border-color 120ms ease;
+  user-select: none;
+}
+
+.pl-btn:active {
+  transform: translateY(1px);
+}
+
+.pl-btnPrimary {
+  background: #111;
+  color: #fff;
+  border-color: rgba(20, 20, 20, 0.2);
+}
+
+.pl-btnPrimary:hover {
+  background: #1a1a1a;
+}
+
+.pl-btnGhost:hover {
+  background: #f6f6f6;
+}
+
+.pl-pianoCard {
+  border-radius: calc(var(--pl-radius) + 4px);
+}
+
+.pl-pianoShell {
+  border-radius: calc(var(--pl-radius) + 4px);
+  background: #292926;
+  padding: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.pl-pianoTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.pl-marquee {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.pl-hint {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pl-keys {
+  position: relative;
+  user-select: none;
+  width: 700px; /* Fixed width to prevent fit-content collapse */
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.pl-whiteRow {
+  display: flex;
+  gap: 0;
+}
+
+.pl-whiteKey {
+  position: relative;
+  height: 160px;
+  flex: 1;
+  border-radius: 0 0 18px 18px;
+  background: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease,
+    border-color 120ms ease;
+}
+
+.pl-whiteKey.isActive {
+  transform: translateY(1px);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.pl-whiteKeyKb {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.pl-whiteKeyLabel {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.pl-blackLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+}
+
+.pl-blackInner {
+  position: relative;
+  height: 100%;
+  margin: 0;
+}
+
+.pl-blackSlot {
+  position: absolute;
+  top: 0;
+}
+
+.pl-blackKey {
+  pointer-events: auto;
+  position: relative;
+  height: 120px;
+  width: 54px;
+  border-radius: 0 0 16px 16px;
+  background: #292926;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 -6px 0 rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease,
+    border-color 120ms ease;
+}
+
+.pl-blackKey.isActive {
+  transform: translateY(1px);
+  box-shadow: inset 0 -3px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.pl-blackKeyKb {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pl-footer-text {
+  text-align: center;
+  color: #ffc785;
+  font-size: 12px;
+  margin-top: 16px;
+  font-weight: 500;
+}
+
+@media (min-width: 2560px) {
+  .pl-wrap {
+    transform: translateY(-3vw);
+  }
+  .pl-keys {
+    width: 45vw; /* ~1150px */
+  }
+  .pl-whiteKey {
+    height: 9.9vw; /* ~250px */
+  }
+  .pl-blackKey {
+    width: 3.1vw; /* ~80px */
+    height: 7.2vw; /* ~185px */
+  }
+  .pl-blackLayer {
+    height: 7.2vw; /* ~185px */
+  }
+  .pl-footer-text {
+    font-size: 24px;
+  }
+  .pl-note-text {
+    font-size: 24px;
+  }
+  .pl-note-badge {
+    width: 1.5vw;
+    height: 1.5vw;
+  }
+}
+
+@media (max-width: 1440px) {
+  .pl-pianoTop {
+    margin-bottom: 4px;
+  }
+  .pl-keys {
+    width: 46vw; /* ~660px */
+  }
+  .pl-whiteKey {
+    height: 11.2vw; /* ~160px */
+  }
+  .pl-blackKey {
+    width: 3.8vw; /* ~54px */
+    height: 8.4vw; /* ~120px */
+  }
+  .pl-blackLayer {
+    height: 8.4vw;
+  }
+  .pl-footer-text,
+  .pl-note-text {
+    font-size: 16px;
+  }
+  .pl-note-badge {
+    width: 1vw;
+    height: 1vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pl-pianoTop {
+    margin-bottom: 4px;
+  }
+  .pl-wrap {
+    padding: 14px;
+    left: 5%;
+  }
+  .pl-keys {
+    width: 470px;
+  }
+  .pl-blackKey {
+    width: 3.9vw; /* ~54px */
+    height: 8.4vw; /* ~120px */
+  }
+  .pl-whiteKey {
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pl-keys {
+    width: 480px;
+  }
+  .pl-whiteKey {
+    height: 120px;
+  }
+  .pl-blackLayer {
+    height: 80px;
+  }
+  .pl-blackKey {
+    height: 80px;
+    width: 40px;
+  }
+}
+
+@media (max-width: 425px) {
+  .pl-wrap {
+    padding: 10px;
+  }
+  .pl-keys {
+    width: 320px;
+  }
+  .pl-whiteKey {
+    height: 100px;
+    border-radius: 0 0 8px 8px;
+  }
+  .pl-blackLayer {
+    height: 60px;
+  }
+  .pl-blackKey {
+    width: 24px;
+    height: 60px;
+    border-radius: 0 0 6px 6px;
+  }
+  .pl-whiteKeyLabel,
+  .pl-whiteKeyKb,
+  .pl-blackKeyKb {
+    display: none;
+  }
+}

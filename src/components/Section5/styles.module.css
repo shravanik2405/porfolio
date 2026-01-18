@@ -1,0 +1,193 @@
+.section {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 10;
+  gap: 40px;
+  margin-right: 0; /* Align back to center/right */
+}
+
+.vase {
+  width: auto;
+  height: 382px; /* Matches SVG height */
+  flex-shrink: 0;
+  margin-right: -25px; /* Pull stand closer */
+}
+
+.plantsStand {
+  width: 221px;
+  height: auto;
+  flex-shrink: 0;
+  margin-right: 0;
+  transform: translateY(-50px); /* Move up visually */
+}
+
+.rock {
+  width: 180px;
+  height: auto;
+  flex-shrink: 0;
+  margin-left: -40px; /* Overlap with piano from the right */
+}
+
+.flamingo {
+  width: auto;
+  height: 312px; /* Matches SVG height */
+  flex-shrink: 0;
+  margin-left: -50px; /* Cluster with rock */
+  transform: translateY(-75px); /* Move up visually */
+}
+
+@media (max-width: 1440px) {
+  .vase {
+    height: 23.6vw; /* ~340px */
+  }
+
+  .plantsStand {
+    width: 13.9vw; /* ~200px */
+  }
+
+  .rock {
+    width: 11.1vw; /* ~160px */
+  }
+
+  .flamingo {
+    height: 17vw; /* Reduced from 19.4vw */
+  }
+
+  .hangingPot {
+    width: 9.4vw; /* ~135px */
+  }
+}
+
+@media (min-width: 2560px) {
+  .vase {
+    height: 19.5vw; /* ~500px */
+  }
+
+  .plantsStand {
+    width: 25vw;
+    height: auto;
+  }
+
+  .rock {
+    width: 9.8vw;
+  }
+
+  .flamingo {
+    height: 15.6vw;
+    transform: translateY(-8.5vw); /* Move up visually on large screens */
+  }
+
+  .hangingPot {
+    width: 7.8vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentContainer {
+    /* flex-direction: column; Removed to keep row layout */
+    gap: 0; /* Removed gap */
+    align-items: flex-end;
+  }
+
+  .vase {
+    height: 220px;
+    margin-right: -20px; /* Increased overlap */
+  }
+
+  .plantsStand {
+    width: 200px;
+    height: auto;
+    margin-right: -10px; /* Pull closer to rock/piano */
+    transform: translateY(-20px);
+  }
+
+  .rock {
+    height: auto;
+    width: 110px;
+    margin-left: -30px; /* Increased overlap */
+  }
+
+  .flamingo {
+    height: 190px;
+    margin-left: -30px; /* Increased overlap */
+    transform: translateY(-30px);
+  }
+}
+
+.title {
+  font-size: 5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .section {
+    width: 150vw; /* Allow scrolling */
+    justify-content: flex-start;
+  }
+
+  .contentContainer {
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-end;
+    margin-left: 5vw;
+  }
+
+  .vase {
+    height: 250px;
+  }
+
+  .plantsStand {
+    width: 200px;
+    height: auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .section {
+    width: 280vw; /* Increased to fit all elements horizontally */
+    justify-content: flex-start;
+  }
+
+  .contentContainer {
+    margin-left: 10vw;
+  }
+
+  .vase {
+    height: 200px;
+  }
+
+  .plantsStand {
+    width: 114px;
+    height: auto;
+  }
+
+  .rock {
+    width: 120px;
+  }
+
+  .flamingo {
+    height: 180px;
+  }
+}
+
+.hangingPot {
+  position: absolute;
+  top: 5%; /* Reduced from -15% to be visible */
+  right: 15%;
+  width: 150px;
+  height: auto;
+  z-index: 20;
+}

@@ -2,8 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 1rem; Removed to align bottom with container bottom */
-  /* overflow: hidden; Removed to allow shadow */
 }
 
 .wrapper {
@@ -13,7 +11,37 @@
 .svg {
   width: 100%;
   height: auto;
-  max-width: 42rem; /* max-w-2xl */
+  max-width: 55rem;
+}
+
+@media (max-width: 2560px) {
+  .svg {
+    width: 55rem;
+  }
+}
+
+@media (max-width: 1440px) {
+  .svg {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .svg {
+    width: 25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .svg {
+    width: 20rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .svg {
+    width: 15rem;
+  }
 }
 
 @keyframes pulse-glow {
@@ -28,44 +56,98 @@
   }
 }
 
-@keyframes float-planet {
+@keyframes arc-slide {
   0% {
     offset-distance: 0%;
+    opacity: 0;
+    transform: scale(0.5);
   }
-  50% {
-    offset-distance: 5%;
+  10% {
+    opacity: 1;
+    transform: scale(1);
   }
-  100% {
-    offset-distance: 0%;
-  }
-}
-
-@keyframes orbit-infinite {
-  0% {
-    offset-distance: 0%;
+  90% {
+    opacity: 1;
+    transform: scale(1);
   }
   100% {
     offset-distance: 100%;
+    opacity: 0;
+    transform: scale(0.5);
   }
-}
-
-.orbitGroup {
-  transform-origin: 268px 250px;
-}
-
-.planetMotion {
-  offset-path: path("M 508 250 A 240 90 0 1 1 28 250 A 240 90 0 1 1 508 250");
-  offset-rotate: 0deg;
-  animation: float-planet 6s ease-in-out infinite;
-}
-
-.cssPlanetMotion {
-  offset-path: path("M 488 250 A 220 60 0 1 1 48 250 A 220 60 0 1 1 488 250");
-  offset-rotate: 0deg;
-  animation: orbit-infinite 20s linear infinite;
 }
 
 .orbitSystem circle[fill="url(#auraGradient)"] {
   animation: pulse-glow 4s ease-in-out infinite;
   transform-origin: 268px 250px;
+}
+
+.planet {
+  /* Define the path for all planets */
+  /* Default Desktop: R=320 */
+  offset-path: path("M -52 280 A 320 320 0 0 1 588 280");
+  offset-rotate: 0deg; /* Keep planets upright or auto to follow path tangent */
+  /* transform-box: fill-box; */
+  /* transform-origin: center; */
+
+  /* Initial state off-screen/invisible if waiting for delay */
+  opacity: 0;
+
+  animation: arc-slide 20s linear infinite;
+}
+
+@media (max-width: 1024px) {
+  .planet {
+    /* Tablet: R=340 */
+    offset-path: path("M -72 280 A 340 340 0 0 1 608 280");
+  }
+}
+
+@media (max-width: 768px) {
+  .planet {
+    /* Mobile: R=320 */
+    offset-path: path("M -52 280 A 320 320 0 0 1 588 280");
+  }
+}
+
+/* Cascading Delays */
+.planet1 {
+  animation-delay: 0s;
+  /* Complex SVG needs to be visible */
+}
+
+.planet2 {
+  animation-delay: 2s;
+}
+
+.planet3 {
+  animation-delay: 4s;
+}
+
+.planet4 {
+  animation-delay: 6s;
+}
+
+.planet5 {
+  animation-delay: 8s;
+}
+
+.planet6 {
+  animation-delay: 10s;
+}
+
+.planet7 {
+  animation-delay: 12s;
+}
+
+.planet8 {
+  animation-delay: 14s;
+}
+
+.planet9 {
+  animation-delay: 16s;
+}
+
+.planet10 {
+  animation-delay: 18s;
 }

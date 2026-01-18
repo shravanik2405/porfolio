@@ -1,39 +1,146 @@
 import { theme } from "../../theme";
 import styles from "./styles.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
-import vase3 from "../../assets/vase3.svg";
-import vase4 from "../../assets/vase4.svg";
-import vase5 from "../../assets/vase5.svg";
-import vase1 from "../../assets/vase1.svg";
-import vase2 from "../../assets/vase2.svg";
+import switch1 from "../../assets/switch1.svg";
+import switch2 from "../../assets/switch2.svg";
+import switch3 from "../../assets/switch3.svg";
+import aboutBlob from "../../assets/about-blob.svg";
+import PianoFrameVase from "../../assets/piano-frame-vase.svg";
 
 export const Section3 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const vaseImages = [vase1, vase2, vase3, vase4, vase5];
+  const [isSwitched, setIsSwitched] = useState(false);
+  const switchImages = [switch1, switch2, switch3];
+  const isAnimating = useRef(false);
+  const switchContainerRef = useRef<HTMLDivElement>(null);
+
+  const hasAutoTriggered = useRef(false);
+
+  const handleAnimation = () => {
+    if (isAnimating.current) return;
+    isAnimating.current = true;
+
+    const targetIndex = isSwitched ? 0 : switchImages.length - 1;
+    let currentFrame = currentImageIndex;
+
+    const intervalId = setInterval(() => {
+      if (isSwitched) {
+        currentFrame--;
+      } else {
+        currentFrame++;
+      }
+
+      setCurrentImageIndex(currentFrame);
+
+      if (currentFrame === targetIndex) {
+        clearInterval(intervalId);
+        setIsSwitched(!isSwitched);
+        isAnimating.current = false;
+      }
+    }, 200);
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % vaseImages.length);
-    }, 500); // Change frame every 500ms
-
-    return () => clearInterval(interval);
+    // Preload images
+    switchImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (
+            entry.isIntersecting &&
+            !isSwitched &&
+            !isAnimating.current &&
+            !hasAutoTriggered.current
+          ) {
+            handleAnimation();
+            hasAutoTriggered.current = true;
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (switchContainerRef.current) {
+      observer.observe(switchContainerRef.current);
+    }
+
+    return () => {
+      if (switchContainerRef.current) {
+        observer.unobserve(switchContainerRef.current);
+      }
+    };
+  }, [isSwitched]); // Re-run when state changes to ensure correct logic
+
   return (
-    <section
-      className={styles.section}
-      style={{
-        background: theme.gradients.splitBackground(
-          theme.colors.primary,
-          theme.colors.secondary
-        ),
-      }}>
-      <div className={styles.vaseImageContainer}>
+    <section className={styles.section}>
+      <div className={styles.switchContainer} ref={switchContainerRef}>
         <img
-          src={vaseImages[currentImageIndex]}
-          alt='Frame Animation'
+          src={switchImages[currentImageIndex]}
+          alt='Switch Animation'
           className={styles.frameImage}
+          onClick={handleAnimation}
+        />
+      </div>
+      <div className={styles.testContainer}>
+        <div className={styles.wallContainer}>
+          <img src={aboutBlob} alt='About Blob' className={styles.wallImage} />
+          <div
+            className={styles.blobText}
+            style={{ color: theme.colors.primary }}>
+            <h3>About Me</h3>
+            <p>
+              I build React / React Native apps. I like clean UI, predictable
+              flows, and pixels that behave. I’ve shipped an app from scratch,
+              debugged the “only on production” stuff, and lived to tell the
+              tale. Personality-wise: introvert-friendly, detail-obsessed, chai
+              fueld and emotionally stable as long as the UI is. If you want
+              someone who sweats details, communicates clearly, and stays human
+              about it — hi.
+            </p>
+          </div>{" "}
+        </div>
+      </div>
+      <div className={styles.lampContainer}>
+        <div
+          className={styles.lightBeam}
+          style={{ opacity: isSwitched ? 1 : 0 }}></div>
+        <div
+          className={styles.glow}
+          style={{ opacity: isSwitched ? 0.6 : 0 }}></div>
+        <svg className={styles.lampSvg} viewBox='0 0 256 256'>
+          <g transform='translate(1.4 1.4) scale(2.81)'>
+            <path
+              id='lamp-bulb'
+              d='M 33.424 60.57 C 34.197 66.28 39.078 70.685 45 70.685 S 55.803 66.28 56.576 60.57 C 48.859 58.699 41.141 58.699 33.424 60.57 z'
+              style={{
+                fill: isSwitched ? "#ffff" : "#444",
+                transition: "fill 0.3s",
+              }}
+            />
+
+            <path
+              d='M 46 15.485 V -80 c 0 -0.552 -0.448 -1 -1 -1 s -1 0.448 -1 1 v 95.485 h -6.586 v 9.039 c 2.427 -0.614 4.968 -0.943 7.586 -0.943 s 5.159 0.329 7.586 0.943 v -9.039 H 46 z'
+              style={{ fill: "#292926" }}
+            />
+            <path
+              d='M 14.151 60.57 V 21.58 H 75.849 V 60.57 Z'
+              style={{ fill: "#292926" }}
+            />
+          </g>
+        </svg>
+      </div>
+      <div className={styles.vaseContainer}>
+        <img
+          src={PianoFrameVase}
+          alt='Vase with flowers'
+          className={styles.vase}
         />
       </div>
     </section>

@@ -54,7 +54,6 @@ interface FallingFlower {
 const AvocadoTree = () => {
   // Fixed wind intensity since slider is removed
   const windIntensity = 1.2;
-  const [fallingFlowers, setFallingFlowers] = useState<FallingFlower[]>([]);
 
   // Refs for animation loop
   const requestRef = useRef<number>(undefined);
@@ -65,14 +64,8 @@ const AvocadoTree = () => {
   const FLOWER_ORANGE = "#ff693d";
   const MAX_FALLING_FLOWERS = 25;
 
-  const [treeData, setTreeData] = useState<TreeData>({
-    branches: [],
-    leaves: [],
-    staticFlowers: [],
-  });
-
-  // Generate the tree structure once on mount (in useEffect to avoid impure render)
-  useEffect(() => {
+  // Generate the tree structure once on mount
+  const [treeData] = useState<TreeData>(() => {
     const branches: Branch[] = [];
     const leaves: Leaf[] = [];
     const staticFlowers: StaticFlower[] = [];
@@ -146,44 +139,50 @@ const AvocadoTree = () => {
     // Centered horizontally (400), bottom of viewBox (800)
     grow(400, 800, 90, -Math.PI / 2, 6, 45);
 
-    setTreeData({ branches, leaves, staticFlowers });
+    return { branches, leaves, staticFlowers };
+  });
+
+  // Helper to generate a cluster of flowers
+  const generateNewFlowers = useCallback((leaves: Leaf[]) => {
+    if (leaves.length === 0) return [];
+
+    const clusterSize = 4 + Math.floor(Math.random() * 2); // 4 or 5 flowers
+    const newFlowers: FallingFlower[] = [];
+
+    for (let i = 0; i < clusterSize; i++) {
+      const randomLeafIndex = Math.floor(Math.random() * leaves.length);
+      const spawnPoint = leaves[randomLeafIndex];
+
+      newFlowers.push({
+        id: Date.now() + Math.random() + i, // Unique ID
+        x: spawnPoint.x,
+        y: spawnPoint.y,
+        speed: 0.8 + Math.random() * 0.6, // Slight speed variance
+        startDelay: i * 100,
+      });
+    }
+    return newFlowers;
   }, []);
 
-  // Function to spawn a CLUSTER of flowers
+  // Initialize with some flowers immediately
+  const [fallingFlowers, setFallingFlowers] = useState<FallingFlower[]>(() =>
+    treeData.leaves.length > 0 ? generateNewFlowers(treeData.leaves) : []
+  );
+
+  // Function to spawn a CLUSTER of flowers (exposed for interval)
   const spawnFlowerCluster = useCallback(() => {
     if (treeData.leaves.length === 0) return;
 
     setFallingFlowers((prevFlowers) => {
       if (prevFlowers.length >= MAX_FALLING_FLOWERS) return prevFlowers;
-
-      const clusterSize = 4 + Math.floor(Math.random() * 2); // 4 or 5 flowers
-      const newFlowers: FallingFlower[] = [];
-
-      for (let i = 0; i < clusterSize; i++) {
-        const randomLeafIndex = Math.floor(
-          Math.random() * treeData.leaves.length
-        );
-        const spawnPoint = treeData.leaves[randomLeafIndex];
-
-        newFlowers.push({
-          id: Date.now() + Math.random() + i, // Unique ID
-          x: spawnPoint.x,
-          y: spawnPoint.y,
-          speed: 0.8 + Math.random() * 0.6, // Slight speed variance
-          startDelay: i * 100,
-        });
-      }
-
+      const newFlowers = generateNewFlowers(treeData.leaves);
       return [...prevFlowers, ...newFlowers];
     });
-  }, [treeData.leaves]);
+  }, [treeData.leaves, generateNewFlowers]);
 
   // Initial Burst & Interval
   useEffect(() => {
-    // 1. Immediate Spawns
-    if (treeData.leaves.length > 0) {
-      spawnFlowerCluster();
-    }
+    // 1. Immediate Spawns handled by initial state
 
     // 2. Regular Interval
     const spawnInterval = setInterval(() => {

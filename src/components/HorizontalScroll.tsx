@@ -17,14 +17,15 @@ export const HorizontalScroll = () => {
 
   const [isScrolling, setIsScrolling] = useState(false);
   const scrollTimeout = useRef<number | undefined>(undefined);
-  const [isMobile, setIsMobile] = useState(false);
-
   const [isSmallDevice, setIsSmallDevice] = useState(false);
+  const [isExtraSmall, setIsExtraSmall] = useState(false);
+  const [isMobileS, setIsMobileS] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.matchMedia("(max-width: 1024px)").matches);
       setIsSmallDevice(window.matchMedia("(max-width: 768px)").matches);
+      setIsExtraSmall(window.matchMedia("(max-width: 425px)").matches);
+      setIsMobileS(window.matchMedia("(max-width: 375px)").matches);
     };
 
     checkMobile();
@@ -64,9 +65,19 @@ export const HorizontalScroll = () => {
   const x = useTransform(
     smoothProgress,
     [0, 1],
-    // Desktop: 5 * 100vw = 500vw total. Viewport 100vw. Move -400vw (-80%)
-    // Mobile: 5 * 150vw = 750vw total. Viewport 100vw. Move -650vw (-86.66%)
-    ["0%", isMobile ? `-${(650 / 750) * 100}%` : "-80%"]
+    // Desktop: 5 * 100vw = 500vw. Move -400vw (-80%)
+    // Tablet (768px): 110+100+100+150+100 = 560vw. Move -460vw (-82.14%)
+    // Mobile (425px): 160+150+175+280+100 = 865vw. Move -765vw (-88.44%)
+    [
+      "0%",
+      isMobileS
+        ? `-${(815 / 915) * 100}%`
+        : isExtraSmall
+        ? `-${(765 / 865) * 100}%`
+        : isSmallDevice
+        ? `-${(460 / 560) * 100}%`
+        : "-80%",
+    ]
   );
 
   return (

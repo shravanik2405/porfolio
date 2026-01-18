@@ -10,7 +10,7 @@ export const Section4 = () => {
         <AvocadoTree />
       </div>
       <div className={styles.textContainer}>
-        <p>Say hi. I’ll bring the chai — you bring the idea </p>
+        <p>Say hi. I’ll bring the chai, you bring the idea </p>
         <div className={styles.contactWrapper}>
           <span>shravani.khatri@gmail.com</span>
           <SteamingChai />

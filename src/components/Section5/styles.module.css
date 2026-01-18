@@ -76,7 +76,7 @@
   }
 
   .plantsStand {
-    width: 16.6vw;
+    width: 25vw;
     height: auto;
   }
 
@@ -97,31 +97,31 @@
 @media (max-width: 1024px) {
   .contentContainer {
     /* flex-direction: column; Removed to keep row layout */
-    gap: 10px; /* Tighter gap */
+    gap: 0; /* Removed gap */
     align-items: flex-end;
   }
 
   .vase {
     height: 220px;
-    margin-right: -10px;
+    margin-right: -20px; /* Increased overlap */
   }
 
   .plantsStand {
     width: 200px;
     height: auto;
-    margin-right: 0;
+    margin-right: -10px; /* Pull closer to rock/piano */
     transform: translateY(-20px);
   }
 
   .rock {
     height: auto;
     width: 110px;
-    margin-left: -20px;
+    margin-left: -30px; /* Increased overlap */
   }
 
   .flamingo {
     height: 190px;
-    margin-left: -20px;
+    margin-left: -30px; /* Increased overlap */
     transform: translateY(-30px);
   }
 }

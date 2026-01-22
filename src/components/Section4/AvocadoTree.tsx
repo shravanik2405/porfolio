@@ -51,6 +51,14 @@ interface FallingFlower {
   startDelay: number;
 }
 
+interface CollectedFlower {
+  id: number;
+  x: number;
+  y: number;
+  rotation: number;
+  scale: number;
+}
+
 const AvocadoTree = () => {
   // Fixed wind intensity since slider is removed
   const windIntensity = 1.2;
@@ -169,6 +177,12 @@ const AvocadoTree = () => {
     treeData.leaves.length > 0 ? generateNewFlowers(treeData.leaves) : []
   );
 
+  // Collected flowers on the ground - persist across renders
+  const [collectedFlowers, setCollectedFlowers] = useState<CollectedFlower[]>([]);
+  const MAX_COLLECTED_FLOWERS = 50;
+  const GROUND_Y = 820; // Y position where flowers settle (on the dark bottom section)
+  const MAX_GROUND_Y = 845; // Maximum Y position for collected flowers (near bottom of viewBox)
+
   // Function to spawn a CLUSTER of flowers (exposed for interval)
   const spawnFlowerCluster = useCallback(() => {
     if (treeData.leaves.length === 0) return;
@@ -199,13 +213,39 @@ const AvocadoTree = () => {
     const loop = (time: number) => {
       if (lastTimeRef.current !== undefined) {
         setFallingFlowers((prevFlowers) => {
-          return prevFlowers
-            .map((flower) => {
-              // Strictly vertical motion (Gravity only)
-              const newY = flower.y + flower.speed;
-              return { ...flower, y: newY };
-            })
-            .filter((flower) => flower.y < 850); // Fall slightly past bottom
+          const stillFalling: FallingFlower[] = [];
+          const newlyCollected: CollectedFlower[] = [];
+
+          prevFlowers.forEach((flower) => {
+            const newY = flower.y + flower.speed;
+
+            if (newY >= GROUND_Y) {
+              // Flower has reached the ground - collect it
+              newlyCollected.push({
+                id: flower.id,
+                x: flower.x + (Math.random() - 0.5) * 30, // Random horizontal spread
+                y: GROUND_Y + Math.random() * (MAX_GROUND_Y - GROUND_Y), // Variation within safe zone
+                rotation: Math.random() * 360, // Random rotation for natural look
+                scale: 0.6 + Math.random() * 0.4, // Size variation (0.6 to 1.0)
+              });
+            } else {
+              // Still falling
+              stillFalling.push({ ...flower, y: newY });
+            }
+          });
+
+          // Add newly collected flowers to the ground collection
+          if (newlyCollected.length > 0) {
+            setCollectedFlowers((prev) => {
+              const combined = [...prev, ...newlyCollected];
+              // Keep only the most recent flowers if we exceed the max
+              return combined.length > MAX_COLLECTED_FLOWERS
+                ? combined.slice(-MAX_COLLECTED_FLOWERS)
+                : combined;
+            });
+          }
+
+          return stillFalling;
         });
       }
       lastTimeRef.current = time;
@@ -230,7 +270,7 @@ const AvocadoTree = () => {
         overflow: "hidden",
       }}>
       <svg
-        viewBox='0 0 800 800'
+        viewBox='0 0 800 850'
         style={{ width: "100%", maxWidth: "56rem", height: "auto" }}
         preserveAspectRatio='xMidYMax meet'>
         <defs>
@@ -371,6 +411,17 @@ const AvocadoTree = () => {
               transform={`translate(${flower.x}, ${flower.y})`}>
               {/* Rotated 180 to make the stem point down (gravity) */}
               <use href='#tiny-flower' transform='rotate(180) scale(0.9)' />
+            </g>
+          ))}
+        </g>
+
+        {/* Collected Flowers on Ground - these persist */}
+        <g>
+          {collectedFlowers.map((flower) => (
+            <g
+              key={`collected-${flower.id}`}
+              transform={`translate(${flower.x}, ${flower.y}) rotate(${flower.rotation}) scale(${flower.scale})`}>
+              <use href='#tiny-flower' />
             </g>
           ))}
         </g>

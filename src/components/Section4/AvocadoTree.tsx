@@ -237,7 +237,13 @@ const AvocadoTree = () => {
           // Add newly collected flowers to the ground collection
           if (newlyCollected.length > 0) {
             setCollectedFlowers((prev) => {
-              const combined = [...prev, ...newlyCollected];
+              // Filter out any flowers that are already collected (by ID)
+              const existingIds = new Set(prev.map(f => f.id));
+              const uniqueNewFlowers = newlyCollected.filter(f => !existingIds.has(f.id));
+              
+              if (uniqueNewFlowers.length === 0) return prev;
+              
+              const combined = [...prev, ...uniqueNewFlowers];
               // Keep only the most recent flowers if we exceed the max
               return combined.length > MAX_COLLECTED_FLOWERS
                 ? combined.slice(-MAX_COLLECTED_FLOWERS)
@@ -417,9 +423,9 @@ const AvocadoTree = () => {
 
         {/* Collected Flowers on Ground - these persist */}
         <g>
-          {collectedFlowers.map((flower) => (
+          {collectedFlowers.map((flower, index) => (
             <g
-              key={`collected-${flower.id}`}
+              key={`collected-${flower.id}-${index}-${flower.x}-${flower.y}`}
               transform={`translate(${flower.x}, ${flower.y}) rotate(${flower.rotation}) scale(${flower.scale})`}>
               <use href='#tiny-flower' />
             </g>

@@ -4,80 +4,73 @@ export const Cloud = ({ isPaused }: { isPaused: boolean }) => {
   return (
     <>
       <style>{`
-        @keyframes cloudDrift1 {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(500vw); }
+        @keyframes cloudDrift {
+          0% { transform: translateX(-15vw); }
+          100% { transform: translateX(115vw); }
         }
-        @keyframes cloudDrift2 {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(500vw); }
-        }
-        @keyframes cloudDrift3 {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(500vw); }
+        .cloud-item {
+          position: absolute;
+          pointer-events: none;
         }
         .cloud-1 {
-          animation: cloudDrift1 120s linear infinite;
+          animation: cloudDrift 90s linear infinite;
+          animation-delay: 0s;
         }
         .cloud-2 {
-          animation: cloudDrift2 140s linear infinite;
+          animation: cloudDrift 90s linear infinite;
+          animation-delay: -30s;
         }
         .cloud-3 {
-          animation: cloudDrift3 100s linear infinite;
+          animation: cloudDrift 90s linear infinite;
+          animation-delay: -60s;
         }
       `}</style>
 
-      {/* Cloud 1 - left side */}
+      {/* Cloud 1 - top */}
       <div
         className='cloud-item cloud-1'
         style={{
-          position: "absolute",
-          top: "8%",
-          left: "5vw",
-          zIndex: 5,
-          width: "200px",
-          animationPlayState: isPaused ? "paused" : "running",
-        }}>
-        <img
-          src={CloudSvg}
-          alt='Cloud'
-          style={{ width: "100%", height: "auto", opacity: 0.9 }}
-        />
-      </div>
-
-      {/* Cloud 2 - center */}
-      <div
-        className='cloud-item cloud-2'
-        style={{
-          position: "absolute",
-          top: "12%",
-          left: "40vw",
-          zIndex: 6,
+          top: "6%",
+          left: "0",
           width: "180px",
           animationPlayState: isPaused ? "paused" : "running",
         }}>
         <img
           src={CloudSvg}
           alt='Cloud'
-          style={{ width: "100%", height: "auto", opacity: 0.9 }}
+          style={{ width: "100%", height: "auto", opacity: 0.85 }}
         />
       </div>
 
-      {/* Cloud 3 - right side */}
+      {/* Cloud 2 - middle */}
       <div
-        className='cloud-item cloud-3'
+        className='cloud-item cloud-2'
         style={{
-          position: "absolute",
-          top: "5%",
-          left: "75vw",
-          zIndex: 7,
+          top: "10%",
+          left: "0",
           width: "160px",
           animationPlayState: isPaused ? "paused" : "running",
         }}>
         <img
           src={CloudSvg}
           alt='Cloud'
-          style={{ width: "100%", height: "auto", opacity: 0.9 }}
+          style={{ width: "100%", height: "auto", opacity: 0.85 }}
+        />
+      </div>
+
+      {/* Cloud 3 - lower */}
+      <div
+        className='cloud-item cloud-3'
+        style={{
+          top: "4%",
+          left: "0",
+          width: "140px",
+          animationPlayState: isPaused ? "paused" : "running",
+        }}>
+        <img
+          src={CloudSvg}
+          alt='Cloud'
+          style={{ width: "100%", height: "auto", opacity: 0.85 }}
         />
       </div>
     </>

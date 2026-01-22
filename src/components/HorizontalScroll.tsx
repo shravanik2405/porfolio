@@ -118,8 +118,8 @@ export const HorizontalScroll = () => {
           />
         </div>
 
-        {/* Clouds - fixed position, not affected by horizontal scroll */}
-        <div style={{ position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none" }}>
+        {/* Clouds - fixed position, behind sections */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none" }}>
           <Cloud isPaused={isScrolling} />
         </div>
 
@@ -128,7 +128,7 @@ export const HorizontalScroll = () => {
             x,
             display: "flex",
             position: "relative",
-            zIndex: 1,
+            zIndex: 2,
             willChange: "transform",
           }}>
           <Section1 />

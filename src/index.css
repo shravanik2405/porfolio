@@ -3,6 +3,12 @@ html {
   scroll-behavior: smooth;
   overscroll-behavior: none;
   background-color: #ffcc99; /* Primary color to mask top gap */
+  scroll-padding-top: 0;
+}
+
+html,
+body {
+  scroll-snap-stop: normal;
 }
 
 :root {
@@ -22,6 +28,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden; /* Prevent native horizontal scroll */
   font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 * {

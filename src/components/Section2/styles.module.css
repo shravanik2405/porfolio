@@ -11,7 +11,7 @@
 
 .meditatingContainer {
   position: absolute;
-  bottom: 40%;
+  bottom: 37%;
   left: 50%;
   width: 45%;
   z-index: 25;
@@ -65,7 +65,7 @@
   .meditatingContainer {
     width: 42%;
     left: 45%;
-    bottom: 37%;
+    bottom: 30%;
   }
 
   .imageContainer {

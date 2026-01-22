@@ -57,9 +57,10 @@ export const HorizontalScroll = () => {
   }, []);
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
+    stiffness: 50,
+    damping: 35,
+    restDelta: 0.0001,
+    mass: 0.5,
   });
 
   const x = useTransform(
@@ -105,6 +106,9 @@ export const HorizontalScroll = () => {
           display: "flex",
           height: "100vh",
           overflow: "hidden",
+          willChange: "scroll-position",
+          backfaceVisibility: "hidden",
+          WebkitBackfaceVisibility: "hidden",
         }}>
         {/* Fixed background to eliminate vertical gaps between sections */}
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
@@ -114,14 +118,19 @@ export const HorizontalScroll = () => {
           />
         </div>
 
+        {/* Clouds - fixed position, not affected by horizontal scroll */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none" }}>
+          <Cloud isPaused={isScrolling} />
+        </div>
+
         <motion.div
           style={{
             x,
             display: "flex",
             position: "relative",
             zIndex: 1,
+            willChange: "transform",
           }}>
-          <Cloud isPaused={isScrolling} />
           <Section1 />
           <Section3 />
           <Section2 />

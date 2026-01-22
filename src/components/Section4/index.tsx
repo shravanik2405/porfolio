@@ -12,7 +12,9 @@ export const Section4 = () => {
       <div className={styles.textContainer}>
         <p>Say hi. I’ll bring the chai, you bring the idea </p>
         <div className={styles.contactWrapper}>
-          <span>shravani.khatri@gmail.com</span>
+          <a href="mailto:shravani.khatri@gmail.com" className={styles.emailLink}>
+            shravani.khatri@gmail.com
+          </a>
           <SteamingChai />
         </div>
       </div>

@@ -57,6 +57,18 @@
   margin-top: 20px;
 }
 
+.emailLink {
+  color: #292926;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.emailLink:hover {
+  opacity: 0.7;
+}
+
 /* Large Screens (2K/4K) */
 @media (min-width: 2560px) {
   .textContainer {

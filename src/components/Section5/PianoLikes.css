@@ -250,7 +250,7 @@
 
 @media (min-width: 2560px) {
   .pl-wrap {
-    transform: translateY(-3vw);
+    transform: translateY(-8vw);
   }
   .pl-keys {
     width: 45vw; /* ~1150px */
